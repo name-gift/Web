@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#080b12"
+    >
+
+    <meta
+        name="description"
+        content="Trang cá nhân MonFansub Vietnam."
+    >
+
+    <title>Trang cá nhân - MonFansub Vietnam</title>
+
+
+    <!-- =====================================================
+         FONT
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="css/preloader.css">
+
+    <!-- 01. CSS chung -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- 02. Header -->
+    <link rel="stylesheet" href="css/header.css">
+
+    <!-- 03. Account / Avatar / Dropdown -->
+    <link rel="stylesheet" href="css/account.css">
+
+    <!-- 04. Login / Register -->
+    <link rel="stylesheet" href="css/auth.css">
+
+    <!-- 05. Profile -->
+    <link rel="stylesheet" href="css/profile.css">
+
+    <!-- 06. Responsive -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+     PRELOADER
+    ====================================================== -->
+
+<div id="preloader">
+
+    <div class="loader">
+
+        <img
+            class="loader-logo"
+            src="https://i.imgur.com/nFJ3B1e.png"
+            alt="MonFansub"
+        >
+
+        <div class="loader-spinner"></div>
+
+        <div class="loader-text">
+            Đang tải MonFansub...
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header
+        class="header"
+        id="header"
+    >
+
+        <div class="header-inner">
+
+
+            <!-- =================================================
+                 LOGO
+            ================================================== -->
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <img
+                    src="https://i.imgur.com/nFJ3B1e.png"
+                    alt="MonFansub"
+                >
+
+                <div class="logo-text">
+
+                    MonFansub
+
+                    <span>
+                        Vietnam
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- =================================================
+                 NAVIGATION
+            ================================================== -->
+
+            <nav
+                class="nav"
+                id="mainNav"
+            >
+
+                <a href="index.html">
+                    Trang chủ
+                </a>
+
+                <a href="index.html#latest">
+                    Mới cập nhật
+                </a>
+
+                <a href="index.html#featured">
+                    Nổi bật
+                </a>
+
+                <a href="index.html#categories">
+                    Thể loại
+                </a>
+
+                <a href="history.html">
+                    Lịch sử
+                </a>
+
+                <a href="favorite.html">
+                    Yêu thích
+                </a>
+
+            </nav>
+
+
+            <!-- =================================================
+                 SEARCH
+            ================================================== -->
+
+            <div class="header-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    id="searchInput"
+                    type="search"
+                    autocomplete="off"
+                    placeholder="Tìm kiếm phim..."
+                >
+
+            </div>
+
+
+            <!-- =================================================
+                 ACCOUNT
+            ================================================== -->
+
+            <div
+                class="account-area"
+                id="accountArea"
+            >
+
+
+                <!-- =============================================
+                     CHƯA ĐĂNG NHẬP
+                ============================================== -->
+
+                <button
+                    class="login-button"
+                    id="loginButton"
+                    type="button"
+                    aria-label="Đăng nhập"
+                    title="Đăng nhập"
+                >
+
+                    <i class="fa-solid fa-user"></i>
+
+                </button>
+
+
+                <!-- =============================================
+                     ĐÃ ĐĂNG NHẬP
+                ============================================== -->
+
+                <button
+                    class="user-button"
+                    id="userButton"
+                    type="button"
+                    style="display: none"
+                    aria-label="Tài khoản"
+                    title="Tài khoản"
+                >
+
+                    <span class="user-avatar">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </span>
+
+                </button>
+
+
+                <!-- =============================================
+                     DROPDOWN
+                ============================================== -->
+
+                <div
+                    class="user-dropdown"
+                    id="userDropdown"
+                >
+
+                    <div class="dropdown-user">
+
+                        <div class="dropdown-avatar">
+
+                            <i class="fa-solid fa-user"></i>
+
+                        </div>
+
+
+                        <div class="dropdown-user-info">
+
+                            <strong id="dropdownUserName">
+                                User
+                            </strong>
+
+                            <small id="dropdownUserEmail">
+                                user@email.com
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dropdown-account-id">
+
+                        <i class="fa-regular fa-address-card"></i>
+
+                        <span>
+                            ID tài khoản:
+                        </span>
+
+                        <strong id="dropdownUserId">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <a
+                        href="support.html"
+                        class="dropdown-item"
+                        id="supportLink"
+                    >
+
+                        <i class="fa-regular fa-comment-dots"></i>
+
+                        <span>
+                            Chat hỗ trợ
+                        </span>
+
+                    </a>
+
+
+                    <!-- =================================================
+                         TRANG CÁ NHÂN
+                         
+                         account-menu.js sẽ tự đổi href thành:
+
+                         profile/uid/{session.uid}
+
+                         Ví dụ:
+
+                         profile/uid/
+                         5d72f27a-4757-4c02-81a7-1231d81f5d63
+                    ================================================== -->
+
+                    <a
+                        href="profile.html"
+                        class="dropdown-item"
+                        data-profile-link
+                        id="profileButton"
+                    >
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <span>
+                            Trang cá nhân
+                        </span>
+
+                    </a>
+
+
+                    <button
+                        type="button"
+                        class="dropdown-item dropdown-button"
+                        id="themeButton"
+                    >
+
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+
+                        <span>
+                            Giao diện
+                        </span>
+
+                        <span
+                            class="dropdown-item-value"
+                            id="themeValue"
+                        >
+                            Tự động
+                        </span>
+
+                    </button>
+
+
+                    <a
+                        href="settings.html"
+                        class="dropdown-item"
+                    >
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        <span>
+                            Cài đặt
+                        </span>
+
+                    </a>
+
+
+                    <button
+                        type="button"
+                        class="dropdown-item"
+                        id="promoCodeButton"
+                    >
+
+                        <i class="fa-solid fa-barcode"></i>
+
+                        <span>
+                            Nhập mã khuyến mãi
+                        </span>
+
+                    </button>
+
+
+                    <div class="dropdown-line"></div>
+
+
+                    <button
+                        type="button"
+                        class="dropdown-item"
+                        id="connectionHelpButton"
+                    >
+
+                        <i class="fa-solid fa-circle-exclamation"></i>
+
+                        <span>
+                            Không thể kết nối?/Bị lỗi?
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        id="logoutButton"
+                        class="dropdown-item logout-button"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        <span>
+                            Đăng xuất
+                        </span>
+
+                    </button>
+
+
+                    <div class="dropdown-version">
+                        prod-1.0.a5b6d8v (2026/08/17 00:00:00)
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MOBILE MENU
+            ================================================== -->
+
+            <button
+                class="mobile-menu"
+                id="mobileMenu"
+                type="button"
+                aria-label="Menu"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PROFILE
+    ====================================================== -->
+
+    <main class="profile-page">
+
+        <div class="profile-container">
+
+
+            <!-- =================================================
+                 COVER
+            ================================================== -->
+
+            <section class="profile-cover">
+
+                <img
+                    id="profileCoverImage"
+                    class="profile-cover-image"
+                    src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1800&q=85"
+                    alt="Ảnh bìa"
+                >
+
+
+                <button
+                    type="button"
+                    class="profile-cover-edit"
+                    id="changeCoverButton"
+                    title="Đổi ảnh bìa"
+                >
+
+                    <i class="fa-solid fa-camera"></i>
+
+                </button>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PROFILE HEADER
+            ================================================== -->
+
+            <section class="profile-header">
+
+
+                <!-- AVATAR -->
+
+                <div class="profile-avatar">
+
+                    <img
+                        id="profileAvatar"
+                        src="https://i.imgur.com/nFJ3B1e.png"
+                        alt="Ảnh đại diện"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="profile-avatar-edit"
+                        id="changeAvatarButton"
+                        title="Đổi ảnh đại diện"
+                    >
+
+                        <i class="fa-solid fa-camera"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- USER INFO -->
+
+                <div class="profile-user-info">
+
+                    <div class="profile-user-main">
+
+                        <h1
+                            class="profile-name"
+                            id="profileName"
+                        >
+                            User
+                        </h1>
+
+
+                        <div class="profile-id">
+
+                            ID tài khoản:
+
+                            <strong id="profileAccountId">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div
+                            class="profile-bio"
+                            id="profileBio"
+                        >
+                            Chưa có thông tin giới thiệu.
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="setting/account.html"
+                        class="edit-profile-btn"
+                    >
+
+                        <i class="fa-solid fa-pen-to-square"></i>
+
+                        Chỉnh sửa thông tin
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PROFILE CONTENT
+            ================================================== -->
+
+            <section class="profile-content">
+
+
+                <!-- =================================================
+                     SIDEBAR
+                ================================================== -->
+
+                <aside class="profile-sidebar">
+
+
+                    <!-- THÔNG TIN -->
+
+                    <div class="profile-info-card">
+
+                        <div class="profile-info-title">
+
+                            <i class="fa-solid fa-circle-info"></i>
+
+                            Thông tin
+
+                        </div>
+
+
+                        <!-- JOIN DATE -->
+
+                        <div class="profile-info-row">
+
+                            <div class="profile-info-icon">
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                            </div>
+
+
+                            <div class="profile-info-text">
+
+                                <span class="profile-info-label">
+                                    Tham gia
+                                </span>
+
+                                <span
+                                    class="profile-info-value"
+                                    id="profileJoinDate"
+                                >
+                                    —
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- WATCHED -->
+
+                        <div class="profile-info-row">
+
+                            <div class="profile-info-icon">
+
+                                <i class="fa-solid fa-film"></i>
+
+                            </div>
+
+
+                            <div class="profile-info-text">
+
+                                <span class="profile-info-label">
+                                    Đã xem
+                                </span>
+
+                                <span
+                                    class="profile-info-value"
+                                    id="profileWatchedCount"
+                                >
+                                    0 bộ phim
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAVORITES -->
+
+                        <div class="profile-info-row">
+
+                            <div class="profile-info-icon">
+
+                                <i class="fa-solid fa-heart"></i>
+
+                            </div>
+
+
+                            <div class="profile-info-text">
+
+                                <span class="profile-info-label">
+                                    Yêu thích
+                                </span>
+
+                                <span
+                                    class="profile-info-value"
+                                    id="profileFavoriteCount"
+                                >
+                                    0 bộ phim
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FOLLOWING -->
+
+                        <div class="profile-info-row">
+
+                            <div class="profile-info-icon">
+
+                                <i class="fa-solid fa-user-plus"></i>
+
+                            </div>
+
+
+                            <div class="profile-info-text">
+
+                                <span class="profile-info-label">
+                                    Đang theo dõi
+                                </span>
+
+                                <span
+                                    class="profile-info-value"
+                                    id="profileFollowingCount"
+                                >
+                                    0 người
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+
+
+                <!-- =================================================
+                     PROFILE MAIN
+                ================================================== -->
+
+                <div class="profile-main">
+
+
+                    <!-- TABS -->
+
+                    <nav class="profile-tabs">
+
+
+                        <button
+                            type="button"
+                            class="profile-tab active"
+                            data-tab="posts"
+                        >
+
+                            <i class="fa-regular fa-newspaper"></i>
+
+                            Bài viết
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="profile-tab"
+                            data-tab="history"
+                        >
+
+                            <i class="fa-regular fa-clock"></i>
+
+                            Đã xem gần đây
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="profile-tab"
+                            data-tab="activity"
+                        >
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            Hoạt động
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="profile-tab"
+                            data-tab="following"
+                        >
+
+                            <i class="fa-solid fa-user-plus"></i>
+
+                            Đang theo dõi
+
+                        </button>
+
+                    </nav>
+
+
+
+                    <!-- =================================================
+                         TAB CONTENT
+                    ================================================== -->
+
+                    <div class="profile-tab-content">
+
+
+                        <!-- =========================
+                             POSTS
+                        ========================== -->
+
+                        <div
+                            class="profile-panel active"
+                            id="tab-posts"
+                        >
+
+                            <div class="profile-empty">
+
+                                <i class="fa-regular fa-newspaper"></i>
+
+                                <strong>
+                                    Chưa có bài viết
+                                </strong>
+
+                                <span>
+                                    Các bài viết của bạn sẽ xuất hiện tại đây.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             HISTORY
+                        ========================== -->
+
+                        <div
+                            class="profile-panel"
+                            id="tab-history"
+                        >
+
+                            <div class="profile-empty">
+
+                                <i class="fa-regular fa-clock"></i>
+
+                                <strong>
+                                    Chưa có lịch sử xem
+                                </strong>
+
+                                <span>
+                                    Những bộ phim bạn xem gần đây sẽ xuất hiện tại đây.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             ACTIVITY
+                        ========================== -->
+
+                        <div
+                            class="profile-panel"
+                            id="tab-activity"
+                        >
+
+                            <div class="profile-empty">
+
+                                <i class="fa-solid fa-chart-line"></i>
+
+                                <strong>
+                                    Chưa có hoạt động
+                                </strong>
+
+                                <span>
+                                    Hoạt động tài khoản sẽ xuất hiện tại đây.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             FOLLOWING
+                        ========================== -->
+
+                        <div
+                            class="profile-panel"
+                            id="tab-following"
+                        >
+
+                            <div class="profile-empty">
+
+                                <i class="fa-solid fa-user-plus"></i>
+
+                                <strong>
+                                    Chưa theo dõi ai
+                                </strong>
+
+                                <span>
+                                    Những người bạn đang theo dõi sẽ xuất hiện tại đây.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/app.js"></script>
+
+    <!-- Auth phải chạy trước account-menu -->
+    <script src="js/auth.js"></script>
+
+    <!-- Account -->
+    <script src="js/account-menu.js"></script>
+
+    <!-- Avatar -->
+    <script src="js/avatar.js"></script>
+
+    <!-- Profile -->
+    <script src="js/profile.js"></script>
+
+
+</body>
+
+</html>

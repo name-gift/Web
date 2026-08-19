@@ -1,0 +1,830 @@
+/* =====================================================
+   PROMO.CSS
+   PROMO CODE MODAL
+===================================================== */
+
+
+/* =====================================================
+   PROMO OVERLAY
+===================================================== */
+
+.promo-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+
+/* OPEN */
+
+.promo-overlay.active,
+.promo-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+/* =====================================================
+   PROMO MODAL
+===================================================== */
+
+.promo-modal {
+  position: relative;
+
+  width: 100%;
+  max-width: 460px;
+
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+
+  padding: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 30, 42, 0.98),
+      rgba(12, 16, 25, 0.98)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+
+  color: #ffffff;
+
+  transform: translateY(18px) scale(0.97);
+  opacity: 0;
+
+  transition:
+    transform 0.28s ease,
+    opacity 0.25s ease;
+}
+
+
+/* MODAL OPEN */
+
+.promo-overlay.active .promo-modal,
+.promo-overlay.show .promo-modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.promo-close {
+  position: absolute;
+
+  top: 16px;
+  right: 16px;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.7);
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.promo-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+
+  transform: rotate(90deg);
+}
+
+.promo-close:active {
+  transform: rotate(90deg) scale(0.92);
+}
+
+
+/* =====================================================
+   PROMO HEADER
+===================================================== */
+
+.promo-header {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding-right: 40px;
+
+  margin-bottom: 26px;
+}
+
+
+/* ICON */
+
+.promo-icon {
+  flex-shrink: 0;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.22),
+      rgba(139, 92, 246, 0.12)
+    );
+
+  border: 1px solid rgba(129, 140, 248, 0.18);
+
+  color: #a5b4fc;
+
+  font-size: 21px;
+
+  box-shadow:
+    0 8px 25px rgba(79, 70, 229, 0.12);
+}
+
+
+/* TITLE */
+
+.promo-header h2 {
+  margin: 0 0 5px;
+
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 700;
+
+  color: #ffffff;
+}
+
+
+/* DESCRIPTION */
+
+.promo-header p {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+#promoForm {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+
+/* =====================================================
+   INPUT GROUP
+===================================================== */
+
+.promo-input-group {
+  width: 100%;
+}
+
+.promo-input-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: rgba(255, 255, 255, 0.78);
+}
+
+
+/* =====================================================
+   INPUT BOX
+===================================================== */
+
+.promo-input-box {
+  position: relative;
+
+  width: 100%;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* ICON */
+
+.promo-input-box > i {
+  flex-shrink: 0;
+
+  margin-left: 16px;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 15px;
+
+  transition: color 0.2s ease;
+}
+
+
+/* INPUT */
+
+.promo-input-box input {
+  flex: 1;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+
+  padding: 0 12px;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+}
+
+
+.promo-input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.32);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+
+/* FOCUS */
+
+.promo-input-box:focus-within {
+  background: rgba(99, 102, 241, 0.07);
+
+  border-color: rgba(129, 140, 248, 0.65);
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.promo-input-box:focus-within > i {
+  color: #a5b4fc;
+}
+
+
+/* =====================================================
+   CLEAR BUTTON
+===================================================== */
+
+.promo-clear {
+  flex-shrink: 0;
+
+  width: 34px;
+  height: 34px;
+
+  margin-right: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.promo-clear:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.promo-message {
+  min-height: 20px;
+
+  margin-top: 9px;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+/* SUCCESS */
+
+.promo-message.success {
+  color: #4ade80;
+}
+
+
+/* ERROR */
+
+.promo-message.error {
+  color: #f87171;
+}
+
+
+/* WARNING */
+
+.promo-message.warning {
+  color: #fbbf24;
+}
+
+
+/* =====================================================
+   CAPTCHA / SECURITY
+===================================================== */
+
+.promo-captcha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-top: 8px;
+  padding: 12px 13px;
+
+  border-radius: 11px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+
+/* STATUS */
+
+.captcha-status {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  min-width: 0;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: rgba(255, 255, 255, 0.72);
+}
+
+
+/* CHECK */
+
+.captcha-check {
+  width: 20px;
+  height: 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 6px;
+
+  background: rgba(34, 197, 94, 0.12);
+
+  border: 1px solid rgba(74, 222, 128, 0.22);
+
+  color: #4ade80;
+
+  font-size: 10px;
+}
+
+
+/* DESCRIPTION */
+
+.promo-captcha small {
+  flex-shrink: 0;
+
+  max-width: 210px;
+
+  font-size: 10px;
+  line-height: 1.4;
+
+  text-align: right;
+
+  color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.promo-submit {
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-top: 18px;
+
+  border: 0;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1,
+      #8b5cf6
+    );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(99, 102, 241, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+
+.promo-submit:hover {
+  filter: brightness(1.08);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 14px 32px rgba(99, 102, 241, 0.3);
+}
+
+
+.promo-submit:active {
+  transform: translateY(0) scale(0.98);
+}
+
+
+.promo-submit:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* =====================================================
+   CANCEL BUTTON
+===================================================== */
+
+.promo-cancel {
+  width: 100%;
+  height: 44px;
+
+  margin-top: 8px;
+
+  border: 0;
+  border-radius: 11px;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.48);
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.promo-cancel:hover {
+  background: rgba(255, 255, 255, 0.05);
+
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.promo-footer {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 8px;
+
+  margin-top: 18px;
+  padding-top: 16px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  font-size: 10px;
+  line-height: 1.5;
+
+  color: rgba(255, 255, 255, 0.32);
+}
+
+
+.promo-footer i {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  color: rgba(165, 180, 252, 0.65);
+}
+
+
+/* =====================================================
+   INPUT STATES
+===================================================== */
+
+/* ERROR */
+
+.promo-input-box.error {
+  border-color: rgba(248, 113, 113, 0.65);
+
+  background: rgba(239, 68, 68, 0.05);
+
+  box-shadow:
+    0 0 0 3px rgba(239, 68, 68, 0.08);
+}
+
+
+/* SUCCESS */
+
+.promo-input-box.success {
+  border-color: rgba(74, 222, 128, 0.55);
+
+  background: rgba(34, 197, 94, 0.045);
+
+  box-shadow:
+    0 0 0 3px rgba(34, 197, 94, 0.07);
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.promo-submit.loading {
+  pointer-events: none;
+
+  opacity: 0.75;
+}
+
+
+.promo-submit.loading i {
+  animation: promoSpin 0.8s linear infinite;
+}
+
+
+@keyframes promoSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+.promo-modal::-webkit-scrollbar {
+  width: 5px;
+}
+
+.promo-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.promo-modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+.promo-modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .promo-overlay {
+    align-items: flex-end;
+
+    padding: 12px;
+  }
+
+
+  .promo-modal {
+    max-width: none;
+
+    max-height: calc(100vh - 24px);
+
+    padding: 23px 18px 18px;
+
+    border-radius: 18px;
+  }
+
+
+  .promo-header {
+    gap: 12px;
+
+    margin-bottom: 22px;
+  }
+
+
+  .promo-icon {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 13px;
+
+    font-size: 18px;
+  }
+
+
+  .promo-header h2 {
+    font-size: 18px;
+  }
+
+
+  .promo-header p {
+    font-size: 12px;
+  }
+
+
+  .promo-close {
+    top: 12px;
+    right: 12px;
+
+    width: 34px;
+    height: 34px;
+  }
+
+
+  .promo-input-box {
+    height: 50px;
+  }
+
+
+  .promo-captcha {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 7px;
+  }
+
+
+  .promo-captcha small {
+    max-width: none;
+
+    text-align: left;
+  }
+
+
+  .promo-submit {
+    height: 48px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+  .promo-modal {
+    padding: 20px 15px 15px;
+  }
+
+
+  .promo-header {
+    padding-right: 32px;
+  }
+
+
+  .promo-header h2 {
+    font-size: 17px;
+  }
+
+
+  .promo-header p {
+    font-size: 11px;
+  }
+
+
+  .promo-icon {
+    width: 42px;
+    height: 42px;
+
+    font-size: 16px;
+  }
+
+}

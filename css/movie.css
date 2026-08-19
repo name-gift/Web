@@ -1,0 +1,418 @@
+/* =====================================================
+   MOVIE.CSS
+   PHIM + SECTION + FEATURED + CATEGORY + SEARCH
+===================================================== */
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(1400px, calc(100% - 40px));
+
+  margin: auto;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+  padding: 30px 0;
+}
+
+.section-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 17px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 20px;
+
+  font-weight: 750;
+
+  letter-spacing: -.5px;
+}
+
+.section-title::before {
+  content: "";
+
+  width: 4px;
+  height: 22px;
+
+  border-radius: 10px;
+
+  background: #fff;
+}
+
+.section-more {
+  color: #7f899a;
+
+  font-size: 12px;
+
+  transition: .2s;
+}
+
+.section-more:hover {
+  color: #fff;
+}
+
+
+/* =====================================================
+   MOVIE GRID
+===================================================== */
+
+.movie-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+
+/* =====================================================
+   MOVIE CARD
+===================================================== */
+
+.movie-card {
+  position: relative;
+
+  min-width: 0;
+
+  cursor: pointer;
+
+  transition:
+    transform .25s ease;
+}
+
+.movie-card:hover {
+  transform:
+    translateY(-5px);
+}
+
+
+/* =====================================================
+   POSTER
+===================================================== */
+
+.poster {
+  position: relative;
+
+  aspect-ratio: 2 / 3;
+
+  overflow: hidden;
+
+  border-radius: 11px;
+
+  background: #111620;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, .2);
+}
+
+.poster img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform .45s ease,
+    filter .3s ease;
+}
+
+.movie-card:hover .poster img {
+  transform: scale(1.05);
+
+  filter: brightness(.75);
+}
+
+
+/* =====================================================
+   POSTER OVERLAY
+===================================================== */
+
+.poster-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+
+  background:
+    rgba(0, 0, 0, .35);
+
+  transition: .25s;
+}
+
+.movie-card:hover .poster-overlay {
+  opacity: 1;
+}
+
+
+/* =====================================================
+   PLAY CIRCLE
+===================================================== */
+
+.play-circle {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #080b12;
+
+  background: #fff;
+
+  box-shadow:
+    0 5px 25px rgba(0, 0, 0, .4);
+}
+
+
+/* =====================================================
+   MOVIE BADGE
+===================================================== */
+
+.movie-badge {
+  position: absolute;
+
+  top: 8px;
+  left: 8px;
+
+  z-index: 2;
+
+  padding: 4px 7px;
+
+  border-radius: 5px;
+
+  color: #fff;
+
+  background:
+    rgba(0, 0, 0, .65);
+
+  backdrop-filter: blur(8px);
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+.movie-badge.vip {
+  background:
+    rgba(255, 190, 70, .92);
+
+  color: #17100a;
+}
+
+
+/* =====================================================
+   MOVIE NAME
+===================================================== */
+
+.movie-name {
+  margin-top: 9px;
+
+  color: #e7eaf0;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 2;
+
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+.movie-subtitle {
+  margin-top: 4px;
+
+  color: #737d8e;
+
+  font-size: 10px;
+}
+
+
+/* =====================================================
+   FEATURED
+===================================================== */
+
+.featured-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+.featured-card {
+  position: relative;
+
+  min-height: 210px;
+
+  overflow: hidden;
+
+  border-radius: 13px;
+
+  background: #111620;
+
+  cursor: pointer;
+}
+
+.featured-card img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: .4s;
+}
+
+.featured-card:hover img {
+  transform: scale(1.05);
+}
+
+.featured-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, .9),
+      rgba(0, 0, 0, .2)
+    );
+}
+
+.featured-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 65%;
+
+  padding: 25px;
+}
+
+.featured-content h3 {
+  font-size: 18px;
+
+  margin-bottom: 9px;
+}
+
+.featured-content p {
+  color: #a5adbb;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+.categories {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.category {
+  padding: 9px 14px;
+
+  border:
+    1px solid rgba(255, 255, 255, .07);
+
+  border-radius: 8px;
+
+  color: #9ca5b4;
+
+  background:
+    rgba(255, 255, 255, .035);
+
+  font-size: 12px;
+
+  transition: .2s;
+}
+
+.category:hover {
+  color: #fff;
+
+  background:
+    rgba(255, 255, 255, .08);
+}
+
+
+/* =====================================================
+   SEARCH RESULTS
+===================================================== */
+
+#searchResults {
+  display: none;
+
+  padding: 25px 0;
+}
+
+#searchResults.show {
+  display: block;
+}
+
+.search-empty {
+  padding: 50px 20px;
+
+  text-align: center;
+
+  color: #747e8e;
+}
+
+.search-empty i {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: 35px;
+}

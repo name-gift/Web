@@ -1,0 +1,162 @@
+/* =====================================================
+   VIETNAM
+   STYLE.CSS
+   CSS CHUNG
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(75, 95, 160, .12),
+      transparent 35%
+    ),
+    #080b12;
+
+  color: #fff;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: #fff;
+  color: #080b12;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080b12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252b38;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #394354;
+}
+
+
+/* =====================================================
+   PRELOADER
+===================================================== */
+
+#preloader {
+  position: fixed;
+  inset: 0;
+
+  z-index: 999999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #171d2b 0%,
+      #090c13 55%,
+      #05070b 100%
+    );
+
+  transition:
+    opacity .5s ease,
+    visibility .5s ease;
+}
+
+#preloader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader {
+  text-align: center;
+}
+
+.loader-logo {
+  width: 90px;
+  height: 90px;
+
+  margin: 0 auto 25px;
+
+  border-radius: 24px;
+
+  object-fit: cover;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, .5);
+}
+
+.loader-spinner {
+  width: 36px;
+  height: 36px;
+
+  margin: auto;
+
+  border: 3px solid rgba(255, 255, 255, .12);
+  border-top-color: #fff;
+
+  border-radius: 50%;
+
+  animation: spin .8s linear infinite;
+}
+
+.loader-text {
+  margin-top: 15px;
+
+  color: #9ba4b5;
+
+  font-size: 13px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

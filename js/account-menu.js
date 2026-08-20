@@ -7,6 +7,7 @@
 const API_BASE =
   "https://xac-minh.abcd1601ab.workers.dev";
 
+
 /* =====================================================
    ACCOUNT ELEMENTS
 ===================================================== */
@@ -192,6 +193,10 @@ function updateAccountUI() {
 
     if (!session.uid) {
 
+      link.removeAttribute(
+        "data-profile-uid"
+      );
+
       return;
 
     }
@@ -203,12 +208,8 @@ function updateAccountUI() {
       );
 
 
-    const profileUrl =
-      `/profile/uid/${encodeURIComponent(uid)}`;
-
-
     link.href =
-      profileUrl;
+      `/profile/uid/${encodeURIComponent(uid)}`;
 
 
     link.dataset.profileUid =
@@ -242,7 +243,7 @@ function initUserDropdown() {
         }
 
 
-        /* Đóng mobile menu nếu đang mở */
+        /* Đóng mobile menu */
 
         closeMobileMenu();
 
@@ -760,7 +761,8 @@ function initPromoModal() {
 
     if (promoInput) {
 
-      promoInput.value = "";
+      promoInput.value =
+        "";
 
     }
 
@@ -801,26 +803,14 @@ function initPromoModal() {
     }
 
 
-    /* Reset Turnstile */
+    /* Reset CAPTCHA */
 
     if (
-      typeof turnstile !== "undefined"
+      typeof MonFansubTurnstile !==
+      "undefined"
     ) {
 
-      try {
-
-        turnstile.reset();
-
-      }
-
-      catch (error) {
-
-        console.warn(
-          "Không thể reset Turnstile:",
-          error
-        );
-
-      }
+      MonFansubTurnstile.reset();
 
     }
 
@@ -829,8 +819,6 @@ function initPromoModal() {
 
   /* =================================================
      NÚT NHẬP MÃ KHUYẾN MÃI
-     
-     KHÔNG DÙNG prompt()
   ================================================= */
 
   promoButton.addEventListener(
@@ -839,6 +827,7 @@ function initPromoModal() {
 
       event.preventDefault();
       event.stopPropagation();
+
 
       openPromoModal();
 
@@ -858,6 +847,7 @@ function initPromoModal() {
 
         event.preventDefault();
         event.stopPropagation();
+
 
         closePromoModal();
 
@@ -879,6 +869,7 @@ function initPromoModal() {
 
         event.preventDefault();
         event.stopPropagation();
+
 
         closePromoModal();
 
@@ -1018,11 +1009,6 @@ function initPromoModal() {
 
   /* =================================================
      SUBMIT PROMO
-     
-     API THẬT
-     
-     Frontend KHÔNG còn chứa danh sách
-     mã khuyến mãi.
   ================================================= */
 
   if (promoForm) {
@@ -1074,33 +1060,16 @@ function initPromoModal() {
 
         /* ---------------------------------------------
            LẤY TURNSTILE TOKEN
+           
+           CAPTCHA đã được tách sang
+           js/turnstile.js
         --------------------------------------------- */
 
-        let captchaToken =
-          null;
-
-
-        if (
-          typeof turnstile !== "undefined"
-        ) {
-
-          try {
-
-            captchaToken =
-              turnstile.getResponse();
-
-          }
-
-          catch (error) {
-
-            console.warn(
-              "Không thể lấy Turnstile token:",
-              error
-            );
-
-          }
-
-        }
+        const captchaToken =
+          typeof MonFansubTurnstile !==
+          "undefined"
+            ? MonFansubTurnstile.getToken()
+            : null;
 
 
         /* ---------------------------------------------
@@ -1153,14 +1122,14 @@ function initPromoModal() {
 
 
         /* ---------------------------------------------
-           GỌI WORKER API
+           GỌI PROMO WORKER
         --------------------------------------------- */
 
         try {
 
           const response =
             await fetch(
-              "/api/promo",
+              `${API_BASE}/api/promo`,
               {
 
                 method:
@@ -1304,26 +1273,14 @@ function initPromoModal() {
           }
 
 
-          /* Reset Turnstile */
+          /* CAPTCHA lỗi → reset */
 
           if (
-            typeof turnstile !== "undefined"
+            typeof MonFansubTurnstile !==
+            "undefined"
           ) {
 
-            try {
-
-              turnstile.reset();
-
-            }
-
-            catch (error) {
-
-              console.warn(
-                "Không thể reset Turnstile:",
-                error
-              );
-
-            }
+            MonFansubTurnstile.reset();
 
           }
 

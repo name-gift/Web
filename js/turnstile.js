@@ -1,119 +1,158 @@
 "use strict";
 
-/* =====================================================
-   MONFANSUB - TURNSTILE
-===================================================== */
+const CAPTCHA_WORKER =
+    "https://xac-minh.abcd1601ab.workers.dev/api/captcha";
 
 
-/* =====================================================
-   TURNSTILE TOKEN
-===================================================== */
+// ======================================================
+// VERIFY TURNSTILE
+// ======================================================
 
-let loginTurnstileToken = "";
+async function verifyTurnstileToken(token) {
 
-let registerTurnstileToken = "";
+    if (!token) {
+        return false;
+    }
 
-let promoTurnstileToken = "";
+    try {
 
+        const response =
+            await fetch(
+                CAPTCHA_WORKER,
+                {
+                    method: "POST",
 
-/* =====================================================
-   LOGIN
-===================================================== */
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
 
-function onLoginTurnstileSuccess(token) {
-
-    loginTurnstileToken =
-        String(token || "");
-
-}
-
-
-function onLoginTurnstileExpired() {
-
-    loginTurnstileToken = "";
-
-}
-
-
-function onLoginTurnstileError() {
-
-    loginTurnstileToken = "";
-
-}
+                    body: JSON.stringify({
+                        token: token
+                    })
+                }
+            );
 
 
-/* =====================================================
-   REGISTER
-===================================================== */
-
-function onRegisterTurnstileSuccess(token) {
-
-    registerTurnstileToken =
-        String(token || "");
-
-}
+        const result =
+            await response.json();
 
 
-function onRegisterTurnstileExpired() {
+        if (result.success === true) {
 
-    registerTurnstileToken = "";
+            return true;
 
-}
+        }
 
 
-function onRegisterTurnstileError() {
+        return false;
 
-    registerTurnstileToken = "";
+    }
+
+    catch (error) {
+
+        console.error(
+            "CAPTCHA VERIFY ERROR:",
+            error
+        );
+
+        return false;
+
+    }
 
 }
 
 
-/* =====================================================
-   PROMO
-===================================================== */
+// ======================================================
+// LOGIN
+// ======================================================
 
-function onPromoTurnstileSuccess(token) {
+window.onLoginTurnstileSuccess =
+    async function(token) {
 
-    promoTurnstileToken =
-        String(token || "");
+        const verified =
+            await verifyTurnstileToken(token);
 
-}
+        if (verified) {
 
+            console.log(
+                "Login CAPTCHA: OK"
+            );
 
-function onPromoTurnstileExpired() {
+        }
 
-    promoTurnstileToken = "";
-
-}
-
-
-function onPromoTurnstileError() {
-
-    promoTurnstileToken = "";
-
-}
+    };
 
 
-/* =====================================================
-   GET TOKENS
-===================================================== */
+// ======================================================
+// REGISTER
+// ======================================================
 
-function getLoginTurnstileToken() {
+window.onRegisterTurnstileSuccess =
+    async function(token) {
 
-    return loginTurnstileToken;
+        const verified =
+            await verifyTurnstileToken(token);
 
-}
+        if (verified) {
+
+            console.log(
+                "Register CAPTCHA: OK"
+            );
+
+        }
+
+    };
 
 
-function getRegisterTurnstileToken() {
+// ======================================================
+// PROMO
+// ======================================================
 
-    return registerTurnstileToken;
+window.onPromoTurnstileSuccess =
+    async function(token) {
 
-}
+        const verified =
+            await verifyTurnstileToken(token);
+
+        if (verified) {
+
+            console.log(
+                "Promo CAPTCHA: OK"
+            );
+
+        }
+
+    };
 
 
-function getPromoTurnstileToken() {
+// ======================================================
+// EXPIRED
+// ======================================================
 
-    return promoTurnstileToken;
+window.onLoginTurnstileExpired =
+window.onRegisterTurnstileExpired =
+window.onPromoTurnstileExpired =
+function() {
 
-}
+    console.warn(
+        "Turnstile đã hết hạn."
+    );
+
+};
+
+
+// ======================================================
+// ERROR
+// ======================================================
+
+window.onLoginTurnstileError =
+window.onRegisterTurnstileError =
+window.onPromoTurnstileError =
+function() {
+
+    console.warn(
+        "Turnstile verification failed."
+    );
+
+};

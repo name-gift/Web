@@ -1,158 +1,402 @@
 "use strict";
 
-const CAPTCHA_WORKER =
-    "https://xac-minh.abcd1601ab.workers.dev/api/captcha";
+/* =====================================================
+   MONFANSUB - TURNSTILE VERIFY
+===================================================== */
+
+const TURNSTILE_VERIFY_API =
+  "https://xac-minh.abcd1601ab.workers.dev/api/captcha";
 
 
-// ======================================================
-// VERIFY TURNSTILE
-// ======================================================
+/* =====================================================
+   TRẠNG THÁI
+===================================================== */
 
-async function verifyTurnstileToken(token) {
+let turnstileWidgetId = null;
+let turnstileToken = null;
 
-    if (!token) {
-        return false;
-    }
+
+/* =====================================================
+   KHỞI TẠO TURNSTILE
+===================================================== */
+
+function initTurnstile() {
+
+  const container =
+    document.querySelector(
+      "#turnstileWidget"
+    );
+
+  if (!container) {
+
+    console.warn(
+      "Không tìm thấy #turnstileWidget."
+    );
+
+    return;
+
+  }
+
+
+  /* Chờ Cloudflare Turnstile */
+
+  if (
+    typeof turnstile ===
+    "undefined"
+  ) {
+
+    setTimeout(
+      initTurnstile,
+      300
+    );
+
+    return;
+
+  }
+
+
+  /* Nếu đã render rồi thì không render lại */
+
+  if (
+    turnstileWidgetId !== null
+  ) {
+
+    return;
+
+  }
+
+
+  try {
+
+    turnstileWidgetId =
+      turnstile.render(
+        container,
+        {
+
+          sitekey:
+            container.dataset.sitekey,
+
+          language:
+            "vi",
+
+          callback:
+            function(token) {
+
+              turnstileToken =
+                token;
+
+
+              container.dataset.verified =
+                "true";
+
+
+              document.dispatchEvent(
+                new CustomEvent(
+                  "turnstileVerified",
+                  {
+                    detail: {
+                      token: token
+                    }
+                  }
+                )
+              );
+
+            },
+
+
+          "expired-callback":
+            function() {
+
+              turnstileToken =
+                null;
+
+
+              container.dataset.verified =
+                "false";
+
+
+              document.dispatchEvent(
+                new Event(
+                  "turnstileExpired"
+                )
+              );
+
+            },
+
+
+          "error-callback":
+            function(error) {
+
+              turnstileToken =
+                null;
+
+
+              container.dataset.verified =
+                "false";
+
+
+              console.error(
+                "Turnstile error:",
+                error
+              );
+
+
+              document.dispatchEvent(
+                new CustomEvent(
+                  "turnstileError",
+                  {
+                    detail: {
+                      error: error
+                    }
+                  }
+                )
+              );
+
+            }
+
+        }
+      );
+
+  }
+
+  catch (error) {
+
+    console.error(
+      "Không thể khởi tạo Turnstile:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   LẤY TOKEN
+===================================================== */
+
+function getTurnstileToken() {
+
+  return turnstileToken;
+
+}
+
+
+/* =====================================================
+   XÁC MINH VỚI WORKER
+===================================================== */
+
+async function verifyTurnstile() {
+
+  const token =
+    getTurnstileToken();
+
+
+  if (!token) {
+
+    return {
+
+      success: false,
+
+      message:
+        "Vui lòng hoàn thành CAPTCHA."
+
+    };
+
+  }
+
+
+  try {
+
+    const response =
+      await fetch(
+        TURNSTILE_VERIFY_API,
+        {
+
+          method:
+            "POST",
+
+          headers: {
+
+            "Content-Type":
+              "application/json"
+
+          },
+
+          body:
+            JSON.stringify({
+
+              token:
+                token
+
+            })
+
+        }
+      );
+
+
+    let result;
+
 
     try {
 
-        const response =
-            await fetch(
-                CAPTCHA_WORKER,
-                {
-                    method: "POST",
+      result =
+        await response.json();
 
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
+    }
 
-                    body: JSON.stringify({
-                        token: token
-                    })
-                }
-            );
+    catch {
 
+      return {
 
-        const result =
-            await response.json();
+        success: false,
+
+        message:
+          "Worker trả về dữ liệu không hợp lệ."
+
+      };
+
+    }
 
 
-        if (result.success === true) {
+    /* ================================================
+       THÀNH CÔNG
+    ================================================ */
 
-            return true;
+    if (
+      response.ok &&
+      result.success === true
+    ) {
 
-        }
+      return {
+
+        success: true,
+
+        message:
+          result.message ||
+          "CAPTCHA xác minh thành công."
+
+      };
+
+    }
 
 
-        return false;
+    /* ================================================
+       THẤT BẠI
+    ================================================ */
+
+    return {
+
+      success: false,
+
+      message:
+        result.message ||
+        "CAPTCHA không hợp lệ."
+
+    };
+
+  }
+
+  catch (error) {
+
+    console.error(
+      "TURNSTILE VERIFY ERROR:",
+      error
+    );
+
+
+    return {
+
+      success: false,
+
+      message:
+        "Không thể kết nối máy chủ xác minh."
+
+    };
+
+  }
+
+}
+
+
+/* =====================================================
+   RESET CAPTCHA
+===================================================== */
+
+function resetTurnstile() {
+
+  turnstileToken =
+    null;
+
+
+  const container =
+    document.querySelector(
+      "#turnstileWidget"
+    );
+
+
+  if (container) {
+
+    container.dataset.verified =
+      "false";
+
+  }
+
+
+  if (
+    typeof turnstile !==
+    "undefined" &&
+    turnstileWidgetId !== null
+  ) {
+
+    try {
+
+      turnstile.reset(
+        turnstileWidgetId
+      );
 
     }
 
     catch (error) {
 
-        console.error(
-            "CAPTCHA VERIFY ERROR:",
-            error
-        );
-
-        return false;
+      console.warn(
+        "Không thể reset Turnstile:",
+        error
+      );
 
     }
+
+  }
 
 }
 
 
-// ======================================================
-// LOGIN
-// ======================================================
+/* =====================================================
+   DOM READY
+===================================================== */
 
-window.onLoginTurnstileSuccess =
-    async function(token) {
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
 
-        const verified =
-            await verifyTurnstileToken(token);
+    initTurnstile();
 
-        if (verified) {
-
-            console.log(
-                "Login CAPTCHA: OK"
-            );
-
-        }
-
-    };
+  }
+);
 
 
-// ======================================================
-// REGISTER
-// ======================================================
+/* =====================================================
+   EXPORT GLOBAL
+===================================================== */
 
-window.onRegisterTurnstileSuccess =
-    async function(token) {
+window.getTurnstileToken =
+  getTurnstileToken;
 
-        const verified =
-            await verifyTurnstileToken(token);
+window.verifyTurnstile =
+  verifyTurnstile;
 
-        if (verified) {
+window.resetTurnstile =
+  resetTurnstile;
 
-            console.log(
-                "Register CAPTCHA: OK"
-            );
-
-        }
-
-    };
-
-
-// ======================================================
-// PROMO
-// ======================================================
-
-window.onPromoTurnstileSuccess =
-    async function(token) {
-
-        const verified =
-            await verifyTurnstileToken(token);
-
-        if (verified) {
-
-            console.log(
-                "Promo CAPTCHA: OK"
-            );
-
-        }
-
-    };
-
-
-// ======================================================
-// EXPIRED
-// ======================================================
-
-window.onLoginTurnstileExpired =
-window.onRegisterTurnstileExpired =
-window.onPromoTurnstileExpired =
-function() {
-
-    console.warn(
-        "Turnstile đã hết hạn."
-    );
-
-};
-
-
-// ======================================================
-// ERROR
-// ======================================================
-
-window.onLoginTurnstileError =
-window.onRegisterTurnstileError =
-window.onPromoTurnstileError =
-function() {
-
-    console.warn(
-        "Turnstile verification failed."
-    );
-
-};
+window.initTurnstile =
+  initTurnstile;

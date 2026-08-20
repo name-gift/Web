@@ -72,6 +72,17 @@
 
 
   <!-- =====================================================
+       CLOUDFLARE TURNSTILE
+  ====================================================== -->
+
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer
+  ></script>
+
+
+  <!-- =====================================================
        CSS
   ====================================================== -->
 
@@ -233,9 +244,7 @@
       >
 
 
-        <!-- ===============================================
-             CHƯA ĐĂNG NHẬP
-        ================================================= -->
+        <!-- CHƯA ĐĂNG NHẬP -->
 
         <button
           class="login-button"
@@ -250,9 +259,7 @@
         </button>
 
 
-        <!-- ===============================================
-             ĐÃ ĐĂNG NHẬP
-        ================================================= -->
+        <!-- ĐÃ ĐĂNG NHẬP -->
 
         <button
           class="user-button"
@@ -272,9 +279,7 @@
         </button>
 
 
-        <!-- ===============================================
-             USER DROPDOWN
-        ================================================= -->
+        <!-- USER DROPDOWN -->
 
         <div
           class="user-dropdown"
@@ -282,9 +287,7 @@
         >
 
 
-          <!-- =============================================
-               USER INFO
-          ============================================== -->
+          <!-- USER INFO -->
 
           <div class="dropdown-user">
 
@@ -310,9 +313,7 @@
           </div>
 
 
-          <!-- =============================================
-               ACCOUNT ID
-          ============================================== -->
+          <!-- ACCOUNT ID -->
 
           <div class="dropdown-account-id">
 
@@ -329,9 +330,7 @@
           </div>
 
 
-          <!-- =============================================
-               CHAT HỖ TRỢ
-          ============================================== -->
+          <!-- CHAT HỖ TRỢ -->
 
           <a
             href="support.html"
@@ -348,9 +347,7 @@
           </a>
 
 
-          <!-- =============================================
-               TRANG CÁ NHÂN
-          ============================================== -->
+          <!-- TRANG CÁ NHÂN -->
 
           <a
             href="profile.html"
@@ -368,9 +365,7 @@
           </a>
 
 
-          <!-- =============================================
-               GIAO DIỆN
-          ============================================== -->
+          <!-- GIAO DIỆN -->
 
           <button
             type="button"
@@ -394,9 +389,7 @@
           </button>
 
 
-          <!-- =============================================
-               CÀI ĐẶT
-          ============================================== -->
+          <!-- CÀI ĐẶT -->
 
           <a
             href="setting.html"
@@ -412,9 +405,7 @@
           </a>
 
 
-          <!-- =============================================
-               MÃ KHUYẾN MÃI
-          ============================================== -->
+          <!-- MÃ KHUYẾN MÃI -->
 
           <button
             type="button"
@@ -435,9 +426,7 @@
           <div class="dropdown-line"></div>
 
 
-          <!-- =============================================
-               CONNECTION
-          ============================================== -->
+          <!-- CONNECTION -->
 
           <button
             type="button"
@@ -454,9 +443,7 @@
           </button>
 
 
-          <!-- =============================================
-               LOGOUT
-          ============================================== -->
+          <!-- LOGOUT -->
 
           <button
             id="logoutButton"
@@ -473,9 +460,7 @@
           </button>
 
 
-          <!-- =============================================
-               VERSION
-          ============================================== -->
+          <!-- VERSION -->
 
           <div class="dropdown-version">
             prod-1.0.a5b6d8v (2026/08/17 00:00:00)
@@ -486,9 +471,7 @@
       </div>
 
 
-      <!-- =================================================
-           MOBILE MENU
-      ================================================== -->
+      <!-- MOBILE MENU -->
 
       <button
         class="mobile-menu"
@@ -617,9 +600,7 @@
   <main>
 
 
-    <!-- =================================================
-         SEARCH RESULTS
-    ================================================== -->
+    <!-- SEARCH RESULTS -->
 
     <section id="searchResults">
 
@@ -653,9 +634,7 @@
     </section>
 
 
-    <!-- =================================================
-         FEATURED
-    ================================================== -->
+    <!-- FEATURED -->
 
     <section
       class="section"
@@ -776,9 +755,7 @@
     </section>
 
 
-    <!-- =================================================
-         LATEST
-    ================================================== -->
+    <!-- LATEST -->
 
     <section
       class="section"
@@ -813,9 +790,7 @@
     </section>
 
 
-    <!-- =================================================
-         CATEGORIES
-    ================================================== -->
+    <!-- CATEGORIES -->
 
     <section
       class="section"
@@ -833,59 +808,35 @@
 
       <div class="categories">
 
-        <a
-          href="#"
-          class="category"
-        >
+        <a href="#" class="category">
           Doraemon
         </a>
 
-        <a
-          href="#"
-          class="category"
-        >
+        <a href="#" class="category">
           Anime
         </a>
 
-        <a
-          href="#"
-          class="category"
-        >
+        <a href="#" class="category">
           Movie
         </a>
 
-        <a
-          href="#"
-          class="category"
-        >
+        <a href="#" class="category">
           Phiêu lưu
         </a>
 
-        <a
-          href="#"
-          class="category"
-        >
+        <a href="#" class="category">
           Hài hước
         </a>
 
-        <a
-          href="#"
-          class="category"
-        >
+        <a href="#" class="category">
           Gia đình
         </a>
 
-        <a
-          href="#"
-          class="category"
-        >
+        <a href="#" class="category">
           Khoa học viễn tưởng
         </a>
 
-        <a
-          href="#"
-          class="category"
-        >
+        <a href="#" class="category">
           Hoạt hình
         </a>
 
@@ -994,6 +945,7 @@
 
     <div class="auth-modal">
 
+
       <button
         class="modal-close"
         id="closeLogin"
@@ -1093,6 +1045,26 @@
         </div>
 
 
+        <!-- =================================================
+             TURNSTILE - LOGIN
+        ================================================== -->
+
+        <div class="turnstile-box">
+
+          <div
+            class="cf-turnstile"
+            data-sitekey="0x4AAAAAAEWe0jJcQZHht6oU"
+            data-theme="dark"
+            data-language="vi"
+            data-action="login"
+            data-callback="onLoginTurnstileSuccess"
+            data-expired-callback="onLoginTurnstileExpired"
+            data-error-callback="onLoginTurnstileError"
+          ></div>
+
+        </div>
+
+
         <!-- OPTIONS -->
 
         <div class="auth-options">
@@ -1175,6 +1147,7 @@
   >
 
     <div class="auth-modal">
+
 
       <button
         class="modal-close"
@@ -1325,6 +1298,26 @@
         </div>
 
 
+        <!-- =================================================
+             TURNSTILE - REGISTER
+        ================================================== -->
+
+        <div class="turnstile-box">
+
+          <div
+            class="cf-turnstile"
+            data-sitekey="0x4AAAAAAEWe0jJcQZHht6oU"
+            data-theme="dark"
+            data-language="vi"
+            data-action="register"
+            data-callback="onRegisterTurnstileSuccess"
+            data-expired-callback="onRegisterTurnstileExpired"
+            data-error-callback="onRegisterTurnstileError"
+          ></div>
+
+        </div>
+
+
         <!-- REGISTER -->
 
         <button
@@ -1449,7 +1442,7 @@
               type="text"
               id="promoCodeInput"
               name="promoCode"
-              placeholder="Nhập mã khuyến mãi"
+              placeholder="MFSVN@ABCDEFGHI1234567"
               autocomplete="off"
               autocapitalize="characters"
               spellcheck="false"
@@ -1485,26 +1478,26 @@
         ></div>
 
 
-        <!-- SECURITY -->
+        <!-- =================================================
+             TURNSTILE - PROMO
+        ================================================== -->
 
         <div class="promo-captcha">
 
-          <div class="captcha-status">
-
-            <span class="captcha-check">
-
-              <i class="fa-solid fa-check"></i>
-
-            </span>
-
-            <span>
-              Xác minh bảo mật
-            </span>
-
-          </div>
+          <div
+            class="cf-turnstile"
+            id="promoTurnstile"
+            data-sitekey="0x4AAAAAAEWe0jJcQZHht6oU"
+            data-theme="dark"
+            data-language="vi"
+            data-action="promo"
+            data-callback="onPromoTurnstileSuccess"
+            data-expired-callback="onPromoTurnstileExpired"
+            data-error-callback="onPromoTurnstileError"
+          ></div>
 
           <small>
-            Hệ thống sẽ kiểm tra mã trước khi kích hoạt.
+            Vui lòng hoàn thành xác minh trước khi kích hoạt mã.
           </small>
 
         </div>
@@ -1558,9 +1551,29 @@
 
   <!-- =====================================================
        JAVASCRIPT
-       
-       Thứ tự:
-       app → auth → account → avatar
+  ====================================================== -->
+
+  <script>
+
+    /*
+     * Không sử dụng prompt() cũ
+     */
+
+    window.prompt = function () {
+
+      console.warn(
+        "PROMPT CŨ ĐÃ BỊ CHẶN."
+      );
+
+      return null;
+
+    };
+
+  </script>
+
+
+  <!-- =====================================================
+       MAIN JAVASCRIPT
   ====================================================== -->
 
   <script src="js/app.js"></script>
@@ -1570,6 +1583,10 @@
   <script src="js/account-menu.js"></script>
 
   <script src="js/avatar.js"></script>
+
+  <!-- TURNSTILE HANDLER -->
+
+  <script src="js/turnstile.js"></script>
 
 
 </body>

@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#080b12"
+  >
+
+  <meta
+    name="description"
+    content="MonFansub Vietnam - Xem phim Doraemon và anime Vietsub chất lượng cao."
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="MonFansub Vietnam - Trang chủ"
+  >
+
+  <meta
+    property="og:description"
+    content="Xem phim Doraemon và anime Vietsub chất lượng cao."
+  >
+
+  <meta
+    property="og:image"
+    content="https://i.imgur.com/nFJ3B1e.png"
+  >
+
+  <title>MonFansub Vietnam - Trang chủ</title>
+
+
+  <!-- =====================================================
+       FONT
+  ====================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       FONT AWESOME
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+
+  <!-- =====================================================
+       CLOUDFLARE TURNSTILE
+       Chỉ sử dụng cho Promo Code
+  ====================================================== -->
+
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer
+  ></script>
+
+
+  <!-- =====================================================
+       CSS
+  ====================================================== -->
+
+  <link rel="stylesheet" href="css/preloader.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="css/header.css">
+
+  <link rel="stylesheet" href="css/account.css">
+
+  <link rel="stylesheet" href="css/promo.css">
+
+  <link rel="stylesheet" href="css/auth.css">
+
+  <link rel="stylesheet" href="css/hero.css">
+
+  <link rel="stylesheet" href="css/movie.css">
+
+  <link rel="stylesheet" href="css/footer.css">
+
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <link rel="stylesheet" href="css/theme.css">
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       PRELOADER
+  ====================================================== -->
+
+  <div id="preloader">
+
+    <div class="loader">
+
+      <img
+        class="loader-logo"
+        src="https://i.imgur.com/nFJ3B1e.png"
+        alt="MonFansub"
+      >
+
+      <div class="loader-spinner"></div>
+
+      <div class="loader-text">
+        Đang tải MonFansub...
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header
+    class="header"
+    id="header"
+  >
+
+    <div class="header-inner">
+
+
+      <!-- =================================================
+           LOGO
+      ================================================== -->
+
+      <a
+        href="index.html"
+        class="logo"
+      >
+
+        <img
+          src="https://i.imgur.com/nFJ3B1e.png"
+          alt="MonFansub"
+        >
+
+        <div class="logo-text">
+
+          MonFansub
+
+          <span>
+            Vietnam
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <!-- =================================================
+           NAVIGATION
+      ================================================== -->
+
+      <nav
+        class="nav"
+        id="mainNav"
+      >
+
+        <a
+          href="index.html"
+          class="active"
+        >
+          Trang chủ
+        </a>
+
+        <a href="#latest">
+          Mới cập nhật
+        </a>
+
+        <a href="#featured">
+          Nổi bật
+        </a>
+
+        <a href="#categories">
+          Thể loại
+        </a>
+
+        <a href="history.html">
+          Lịch sử
+        </a>
+
+        <a href="favorite.html">
+          Yêu thích
+        </a>
+
+      </nav>
+
+
+      <!-- =================================================
+           SEARCH
+      ================================================== -->
+
+      <div class="header-search">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          id="searchInput"
+          type="search"
+          autocomplete="off"
+          placeholder="Tìm kiếm phim..."
+        >
+
+      </div>
+
+
+      <!-- =================================================
+           ACCOUNT
+      ================================================== -->
+
+      <div
+        class="account-area"
+        id="accountArea"
+      >
+
+
+        <!-- CHƯA ĐĂNG NHẬP -->
+
+        <button
+          class="login-button"
+          id="loginButton"
+          type="button"
+          aria-label="Đăng nhập"
+          title="Đăng nhập"
+        >
+
+          <i class="fa-solid fa-user"></i>
+
+        </button>
+
+
+        <!-- ĐÃ ĐĂNG NHẬP -->
+
+        <button
+          class="user-button"
+          id="userButton"
+          type="button"
+          style="display:none"
+          aria-label="Tài khoản"
+          title="Tài khoản"
+        >
+
+          <span class="user-avatar">
+
+            <i class="fa-solid fa-user"></i>
+
+          </span>
+
+        </button>
+
+
+        <!-- USER DROPDOWN -->
+
+        <div
+          class="user-dropdown"
+          id="userDropdown"
+        >
+
+
+          <!-- USER INFO -->
+
+          <div class="dropdown-user">
+
+            <div class="dropdown-avatar">
+
+              <i class="fa-solid fa-user"></i>
+
+            </div>
+
+
+            <div class="dropdown-user-info">
+
+              <strong id="dropdownUserName">
+                User
+              </strong>
+
+              <small id="dropdownUserEmail">
+                user@email.com
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <!-- ACCOUNT ID -->
+
+          <div class="dropdown-account-id">
+
+            <i class="fa-regular fa-address-card"></i>
+
+            <span>
+              ID tài khoản:
+            </span>
+
+            <strong id="dropdownUserId">
+              —
+            </strong>
+
+          </div>
+
+
+          <!-- CHAT HỖ TRỢ -->
+
+          <a
+            href="support.html"
+            class="dropdown-item"
+            id="supportLink"
+          >
+
+            <i class="fa-regular fa-comment-dots"></i>
+
+            <span>
+              Chat hỗ trợ
+            </span>
+
+          </a>
+
+
+          <!-- TRANG CÁ NHÂN -->
+
+          <a
+            href="profile.html"
+            class="dropdown-item"
+            id="profileButton"
+            data-profile-link
+          >
+
+            <i class="fa-regular fa-user"></i>
+
+            <span>
+              Trang cá nhân
+            </span>
+
+          </a>
+
+
+          <!-- GIAO DIỆN -->
+
+          <button
+            type="button"
+            class="dropdown-item dropdown-button"
+            id="themeButton"
+          >
+
+            <i class="fa-solid fa-circle-half-stroke"></i>
+
+            <span>
+              Giao diện
+            </span>
+
+            <span
+              class="dropdown-item-value"
+              id="themeValue"
+            >
+              Tự động
+            </span>
+
+          </button>
+
+
+          <!-- CÀI ĐẶT -->
+
+          <a
+            href="setting.html"
+            class="dropdown-item"
+          >
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>
+              Cài đặt
+            </span>
+
+          </a>
+
+
+          <!-- MÃ KHUYẾN MÃI -->
+
+          <button
+            type="button"
+            class="dropdown-item"
+            id="promoCodeButton"
+            aria-label="Nhập mã khuyến mãi"
+          >
+
+            <i class="fa-solid fa-barcode"></i>
+
+            <span>
+              Nhập mã khuyến mãi
+            </span>
+
+          </button>
+
+
+          <div class="dropdown-line"></div>
+
+
+          <!-- CONNECTION -->
+
+          <button
+            type="button"
+            class="dropdown-item"
+            id="connectionHelpButton"
+          >
+
+            <i class="fa-solid fa-circle-exclamation"></i>
+
+            <span>
+              Không thể kết nối?/Bị lỗi?
+            </span>
+
+          </button>
+
+
+          <!-- LOGOUT -->
+
+          <button
+            id="logoutButton"
+            class="dropdown-item logout-button"
+            type="button"
+          >
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>
+              Đăng xuất
+            </span>
+
+          </button>
+
+
+          <!-- VERSION -->
+
+          <div class="dropdown-version">
+            prod-1.0.a5b6d8v (2026/08/17 00:00:00)
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- MOBILE MENU -->
+
+      <button
+        class="mobile-menu"
+        id="mobileMenu"
+        type="button"
+        aria-label="Menu"
+        aria-expanded="false"
+      >
+
+        <i class="fa-solid fa-bars"></i>
+
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="hero">
+
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+
+      <div class="hero-info">
+
+        <div class="hero-badge">
+
+          <i class="fa-solid fa-star"></i>
+
+          MONFANSUB VIETNAM
+
+        </div>
+
+
+        <h1 class="hero-title">
+
+          Doraemon
+
+          <span>
+            Movie
+          </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+          Cùng Doraemon và những người bạn bước vào những
+          cuộc phiêu lưu kỳ thú. Những bộ phim Doraemon
+          được cập nhật với phụ đề tiếng Việt dành cho
+          cộng đồng MonFansub.
+
+        </p>
+
+
+        <div class="hero-meta">
+
+          <span class="meta-item quality">
+            HD
+          </span>
+
+          <span class="meta-item">
+            Vietsub
+          </span>
+
+          <span class="meta-item">
+            2026
+          </span>
+
+          <span class="meta-item">
+            Anime
+          </span>
+
+          <span class="meta-item">
+            1h 50m
+          </span>
+
+        </div>
+
+
+        <div class="hero-actions">
+
+          <button
+            class="btn btn-primary"
+            type="button"
+            onclick="watchMovie('doraemon-movie')"
+          >
+
+            <i class="fa-solid fa-play"></i>
+
+            Xem ngay
+
+          </button>
+
+
+          <button
+            class="btn btn-secondary"
+            type="button"
+            onclick="showInfo()"
+          >
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            Chi tiết
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
+  <main>
+
+
+    <!-- SEARCH RESULTS -->
+
+    <section id="searchResults">
+
+      <div class="section-header">
+
+        <h2 class="section-title">
+          Kết quả tìm kiếm
+        </h2>
+
+      </div>
+
+
+      <div
+        class="movie-grid"
+        id="searchGrid"
+      ></div>
+
+
+      <div
+        class="search-empty"
+        id="searchEmpty"
+        style="display:none"
+      >
+
+        <i class="fa-solid fa-film"></i>
+
+        Không tìm thấy bộ phim phù hợp.
+
+      </div>
+
+    </section>
+
+
+    <!-- FEATURED -->
+
+    <section
+      class="section"
+      id="featured"
+    >
+
+      <div class="section-header">
+
+        <h2 class="section-title">
+          Phim nổi bật
+        </h2>
+
+        <a
+          href="#"
+          class="section-more"
+        >
+
+          Xem tất cả
+
+          <i class="fa-solid fa-chevron-right"></i>
+
+        </a>
+
+      </div>
+
+
+      <div class="featured-grid">
+
+
+        <!-- FEATURED 1 -->
+
+        <article
+          class="featured-card"
+          onclick="watchMovie('nobita-space')"
+        >
+
+          <img
+            src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=900&q=80"
+            alt="Doraemon"
+            loading="lazy"
+          >
+
+          <div class="featured-content">
+
+            <h3>
+              Doraemon Movie
+            </h3>
+
+            <p>
+              Những chuyến phiêu lưu mới cùng
+              Nobita và những người bạn.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- FEATURED 2 -->
+
+        <article
+          class="featured-card"
+          onclick="watchMovie('doraemon-adventure')"
+        >
+
+          <img
+            src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=900&q=80"
+            alt="Anime"
+            loading="lazy"
+          >
+
+          <div class="featured-content">
+
+            <h3>
+              Cuộc Phiêu Lưu Kỳ Thú
+            </h3>
+
+            <p>
+              Một hành trình đầy bất ngờ đang
+              chờ đón những người bạn nhỏ.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- FEATURED 3 -->
+
+        <article
+          class="featured-card"
+          onclick="watchMovie('doraemon-future')"
+        >
+
+          <img
+            src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=900&q=80"
+            alt="Future"
+            loading="lazy"
+          >
+
+          <div class="featured-content">
+
+            <h3>
+              Nobita Và Thế Giới Tương Lai
+            </h3>
+
+            <p>
+              Khám phá thế giới tương lai
+              với những bảo bối kỳ diệu.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- LATEST -->
+
+    <section
+      class="section"
+      id="latest"
+    >
+
+      <div class="section-header">
+
+        <h2 class="section-title">
+          Mới cập nhật
+        </h2>
+
+        <a
+          href="#"
+          class="section-more"
+        >
+
+          Xem tất cả
+
+          <i class="fa-solid fa-chevron-right"></i>
+
+        </a>
+
+      </div>
+
+
+      <div
+        class="movie-grid"
+        id="latestGrid"
+      ></div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <section
+      class="section"
+      id="categories"
+    >
+
+      <div class="section-header">
+
+        <h2 class="section-title">
+          Thể loại
+        </h2>
+
+      </div>
+
+
+      <div class="categories">
+
+        <a href="#" class="category">
+          Doraemon
+        </a>
+
+        <a href="#" class="category">
+          Anime
+        </a>
+
+        <a href="#" class="category">
+          Movie
+        </a>
+
+        <a href="#" class="category">
+          Phiêu lưu
+        </a>
+
+        <a href="#" class="category">
+          Hài hước
+        </a>
+
+        <a href="#" class="category">
+          Gia đình
+        </a>
+
+        <a href="#" class="category">
+          Khoa học viễn tưởng
+        </a>
+
+        <a href="#" class="category">
+          Hoạt hình
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <h3>
+          MonFansub Vietnam
+        </h3>
+
+        <p>
+          MonFansub là nhóm dịch phim Doraemon
+          được thành lập với mục tiêu mang đến
+          những bộ phim chất lượng và trải nghiệm
+          xem phim tốt nhất cho cộng đồng.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a
+          class="social"
+          href="#"
+          aria-label="Facebook"
+        >
+
+          <i class="fa-brands fa-facebook-f"></i>
+
+        </a>
+
+        <a
+          class="social"
+          href="#"
+          aria-label="YouTube"
+        >
+
+          <i class="fa-brands fa-youtube"></i>
+
+        </a>
+
+        <a
+          class="social"
+          href="#"
+          aria-label="Discord"
+        >
+
+          <i class="fa-brands fa-discord"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 MonFansub Vietnam.
+      All rights reserved.
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       BACK TO TOP
+  ====================================================== -->
+
+  <button
+    id="backTop"
+    type="button"
+    aria-label="Lên đầu trang"
+    title="Lên đầu trang"
+  >
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+  </button>
+
+
+  <!-- =====================================================
+       LOGIN MODAL
+       KHÔNG CÓ TURNSTILE
+  ====================================================== -->
+
+  <div
+    class="modal-overlay"
+    id="loginModal"
+  >
+
+    <div class="auth-modal">
+
+
+      <button
+        class="modal-close"
+        id="closeLogin"
+        type="button"
+        aria-label="Đóng"
+      >
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+
+      <div class="auth-logo">
+
+        <img
+          src="https://i.imgur.com/nFJ3B1e.png"
+          alt="MonFansub"
+        >
+
+      </div>
+
+
+      <h2>
+        Đăng nhập
+      </h2>
+
+
+      <p class="auth-description">
+
+        Đăng nhập để lưu lịch sử xem
+        và danh sách yêu thích.
+
+      </p>
+
+
+      <form id="loginForm">
+
+
+        <!-- TÀI KHOẢN -->
+
+        <div class="input-group">
+
+          <label for="loginUsername">
+            Tài khoản hoặc Email
+          </label>
+
+          <div class="input-box">
+
+            <i class="fa-solid fa-user"></i>
+
+            <input
+              id="loginUsername"
+              type="text"
+              placeholder="Nhập tài khoản hoặc email"
+              autocomplete="username"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- MẬT KHẨU -->
+
+        <div class="input-group">
+
+          <label for="loginPassword">
+            Mật khẩu
+          </label>
+
+          <div class="input-box">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <input
+              id="loginPassword"
+              type="password"
+              placeholder="Nhập mật khẩu"
+              autocomplete="current-password"
+              required
+            >
+
+            <button
+              type="button"
+              class="password-toggle"
+              data-target="loginPassword"
+              aria-label="Hiện mật khẩu"
+            >
+
+              <i class="fa-solid fa-eye"></i>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <div class="auth-options">
+
+          <label class="remember">
+
+            <input
+              type="checkbox"
+              id="rememberLogin"
+            >
+
+            <span></span>
+
+            Ghi nhớ đăng nhập
+
+          </label>
+
+
+          <a
+            href="#"
+            id="forgotPassword"
+          >
+            Quên mật khẩu?
+          </a>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <button
+          type="submit"
+          class="auth-submit"
+        >
+
+          <i class="fa-solid fa-right-to-bracket"></i>
+
+          Đăng nhập
+
+        </button>
+
+
+        <!-- MESSAGE -->
+
+        <div
+          class="auth-message"
+          id="loginMessage"
+        ></div>
+
+      </form>
+
+
+      <!-- REGISTER -->
+
+      <div class="auth-switch">
+
+        Chưa có tài khoản?
+
+        <button
+          type="button"
+          id="openRegister"
+        >
+          Đăng ký
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       REGISTER MODAL
+       KHÔNG CÓ TURNSTILE
+  ====================================================== -->
+
+  <div
+    class="modal-overlay"
+    id="registerModal"
+  >
+
+    <div class="auth-modal">
+
+
+      <button
+        class="modal-close"
+        id="closeRegister"
+        type="button"
+        aria-label="Đóng"
+      >
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+
+      <div class="auth-logo">
+
+        <img
+          src="https://i.imgur.com/nFJ3B1e.png"
+          alt="MonFansub"
+        >
+
+      </div>
+
+
+      <h2>
+        Tạo tài khoản
+      </h2>
+
+
+      <p class="auth-description">
+
+        Tham gia cộng đồng MonFansub.
+
+      </p>
+
+
+      <form id="registerForm">
+
+
+        <!-- USERNAME -->
+
+        <div class="input-group">
+
+          <label for="registerUsername">
+            Tên tài khoản
+          </label>
+
+          <div class="input-box">
+
+            <i class="fa-solid fa-user"></i>
+
+            <input
+              id="registerUsername"
+              type="text"
+              placeholder="Nhập tên tài khoản"
+              autocomplete="username"
+              minlength="3"
+              maxlength="30"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="input-group">
+
+          <label for="registerEmail">
+            Email
+          </label>
+
+          <div class="input-box">
+
+            <i class="fa-solid fa-envelope"></i>
+
+            <input
+              id="registerEmail"
+              type="email"
+              placeholder="Nhập email"
+              autocomplete="email"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div class="input-group">
+
+          <label for="registerPassword">
+            Mật khẩu
+          </label>
+
+          <div class="input-box">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <input
+              id="registerPassword"
+              type="password"
+              placeholder="Tạo mật khẩu"
+              autocomplete="new-password"
+              minlength="6"
+              required
+            >
+
+            <button
+              type="button"
+              class="password-toggle"
+              data-target="registerPassword"
+              aria-label="Hiện mật khẩu"
+            >
+
+              <i class="fa-solid fa-eye"></i>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- PASSWORD 2 -->
+
+        <div class="input-group">
+
+          <label for="registerPassword2">
+            Nhập lại mật khẩu
+          </label>
+
+          <div class="input-box">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <input
+              id="registerPassword2"
+              type="password"
+              placeholder="Nhập lại mật khẩu"
+              autocomplete="new-password"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- REGISTER -->
+
+        <button
+          type="submit"
+          class="auth-submit"
+        >
+
+          <i class="fa-solid fa-user-plus"></i>
+
+          Tạo tài khoản
+
+        </button>
+
+
+        <!-- MESSAGE -->
+
+        <div
+          class="auth-message"
+          id="registerMessage"
+        ></div>
+
+      </form>
+
+
+      <!-- LOGIN -->
+
+      <div class="auth-switch">
+
+        Đã có tài khoản?
+
+        <button
+          type="button"
+          id="openLogin"
+        >
+          Đăng nhập
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       PROMO CODE MODAL
+       CÓ TURNSTILE
+  ====================================================== -->
+
+  <div
+    class="modal-overlay promo-overlay"
+    id="promoModal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="promo-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="promoTitle"
+    >
+
+
+      <!-- CLOSE -->
+
+      <button
+        type="button"
+        class="modal-close promo-close"
+        id="closePromo"
+        aria-label="Đóng"
+        title="Đóng"
+      >
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+
+      <!-- HEADER -->
+
+      <div class="promo-header">
+
+        <div class="promo-icon">
+
+          <i class="fa-solid fa-ticket"></i>
+
+        </div>
+
+
+        <div>
+
+          <h2 id="promoTitle">
+            Nhập mã khuyến mãi
+          </h2>
+
+          <p>
+            Vui lòng nhập mã khuyến mãi được cung cấp.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- FORM -->
+
+      <form id="promoForm">
+
+
+        <!-- INPUT -->
+
+        <div class="promo-input-group">
+
+          <label for="promoCodeInput">
+            Mã khuyến mãi
+          </label>
+
+          <div class="promo-input-box">
+
+            <i class="fa-solid fa-barcode"></i>
+
+            <input
+              type="text"
+              id="promoCodeInput"
+              name="promoCode"
+              placeholder="MFSVN@ABCDEFGHI1234567"
+              autocomplete="off"
+              autocapitalize="characters"
+              spellcheck="false"
+              maxlength="50"
+              required
+            >
+
+            <button
+              type="button"
+              id="clearPromoCode"
+              class="promo-clear"
+              aria-label="Xóa mã"
+              title="Xóa mã"
+              style="display:none"
+            >
+
+              <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div
+          class="promo-message"
+          id="promoMessage"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- TURNSTILE - PROMO -->
+
+        <div class="promo-captcha">
+
+          <div
+            class="cf-turnstile"
+            id="promoTurnstile"
+            data-sitekey="0x4AAAAAAEWe0jJcQZHht6oU"
+            data-theme="dark"
+            data-language="vi"
+            data-action="promo"
+            data-callback="onPromoTurnstileSuccess"
+            data-expired-callback="onPromoTurnstileExpired"
+            data-error-callback="onPromoTurnstileError"
+          ></div>
+
+ <!-- TẢI LẠI CAPTCHA -->
+  <button
+    type="button"
+    id="reloadPromoCaptcha"
+    class="captcha-reload"
+    aria-label="Tải lại CAPTCHA"
+    title="Tải lại CAPTCHA"
+  >
+    <i class="fa-solid fa-rotate"></i>
+    Tải lại CAPTCHA
+  </button>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+          type="submit"
+          class="promo-submit"
+          id="promoSubmit"
+        >
+
+          <i class="fa-solid fa-bolt"></i>
+
+          Kích hoạt ngay
+
+        </button>
+
+
+        <!-- CANCEL -->
+
+        <button
+          type="button"
+          class="promo-cancel"
+          id="cancelPromo"
+        >
+
+          Hủy
+
+        </button>
+
+      </form>
+
+
+      <!-- FOOTER -->
+
+      <div class="promo-footer">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        Mã khuyến mãi chỉ có thể sử dụng theo điều kiện
+        của chương trình.
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       BLOCK OLD PROMPT
+  ====================================================== -->
+
+  <script>
+
+    /*
+     * Không sử dụng prompt() cũ
+     */
+
+    window.prompt = function () {
+
+      console.warn(
+        "PROMPT CŨ ĐÃ BỊ CHẶN."
+      );
+
+      return null;
+
+    };
+
+  </script>
+
+
+  <!-- =====================================================
+       MAIN JAVASCRIPT
+  ====================================================== -->
+
+  <script src="js/app.js"></script>
+
+  <script src="js/auth.js"></script>
+
+  <script src="js/account-menu.js"></script>
+
+  <script src="js/avatar.js"></script>
+
+  <!-- TURNSTILE HANDLER - PROMO -->
+
+  <script src="js/turnstile.js"></script>
+
+
+</body>
+
+</html>

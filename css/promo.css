@@ -1,0 +1,1172 @@
+/* =====================================================
+   PROMO CODE MODAL
+   MONFANSUB VIETNAM
+   COMPACT VERSION
+===================================================== */
+
+.promo-overlay{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:15px;
+
+    background:rgba(3,6,12,.72);
+
+    backdrop-filter:blur(9px);
+    -webkit-backdrop-filter:blur(9px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+}
+
+.promo-overlay.active,
+.promo-overlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.promo-modal{
+    position:relative;
+
+    width:100%;
+    max-width:370px;
+
+    padding:19px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,27,43,.98),
+            rgba(8,11,18,.98)
+        );
+
+    border:1px solid rgba(255,255,255,.09);
+
+    border-radius:16px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.55),
+        0 0 0 1px rgba(255,255,255,.02);
+
+    transform:
+        translateY(15px)
+        scale(.97);
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease;
+
+    opacity:0;
+
+    /*
+     * Cho nội dung bên trong tự giãn chiều cao.
+     * Không để CAPTCHA làm tràn lên nút bên dưới.
+     */
+    box-sizing:border-box;
+}
+
+.promo-overlay.active .promo-modal,
+.promo-overlay.show .promo-modal{
+    transform:
+        translateY(0)
+        scale(1);
+
+    opacity:1;
+}
+
+
+/* =====================================================
+   CLOSE
+===================================================== */
+
+.promo-close{
+    position:absolute;
+
+    top:12px;
+    right:12px;
+
+    width:32px;
+    height:32px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:0;
+
+    color:#aab2c3;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.promo-close:hover{
+    color:#fff;
+
+    background:rgba(255,255,255,.1);
+
+    transform:rotate(4deg);
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.promo-header{
+    display:flex;
+    align-items:center;
+
+    gap:11px;
+
+    padding-right:35px;
+
+    margin-bottom:17px;
+}
+
+.promo-icon{
+    flex:0 0 42px;
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5668ff,
+            #754cff
+        );
+
+    border-radius:11px;
+
+    box-shadow:
+        0 7px 20px rgba(86,104,255,.25);
+}
+
+.promo-icon i{
+    font-size:18px;
+}
+
+.promo-header h2{
+    margin:0 0 3px;
+
+    font-size:19px;
+    line-height:1.3;
+    font-weight:700;
+
+    color:#fff;
+}
+
+.promo-header p{
+    margin:0;
+
+    font-size:12px;
+    line-height:1.4;
+
+    color:#8f99ad;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+#promoForm{
+    display:flex;
+    flex-direction:column;
+
+    width:100%;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.promo-input-group{
+    margin-bottom:11px;
+}
+
+.promo-input-group label{
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:12px;
+    font-weight:600;
+
+    color:#c8cfdd;
+}
+
+.promo-input-box{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    width:100%;
+    height:45px;
+
+    background:#0c111c;
+
+    border:1px solid #293246;
+
+    border-radius:9px;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+    box-sizing:border-box;
+}
+
+.promo-input-box:focus-within{
+    background:#0e1421;
+
+    border-color:#6675ff;
+
+    box-shadow:
+        0 0 0 3px rgba(102,117,255,.12);
+}
+
+.promo-input-box > i{
+    flex:0 0 18px;
+
+    margin-left:13px;
+
+    font-size:14px;
+
+    color:#78849a;
+}
+
+.promo-input-box input{
+    width:100%;
+    height:100%;
+
+    padding:
+        0 38px 0 9px;
+
+    color:#fff;
+
+    background:transparent;
+
+    border:0;
+    outline:0;
+
+    font-family:inherit;
+    font-size:13px;
+
+    box-sizing:border-box;
+}
+
+.promo-input-box input::placeholder{
+    color:#667085;
+}
+
+.promo-input-box input:focus{
+    outline:0;
+}
+
+
+/* =====================================================
+   CLEAR BUTTON
+===================================================== */
+
+.promo-clear{
+    position:absolute;
+
+    right:7px;
+
+    width:28px;
+    height:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#8d97aa;
+
+    background:transparent;
+
+    border:0;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    transition:
+        color .2s ease,
+        background .2s ease;
+}
+
+.promo-clear:hover{
+    color:#fff;
+
+    background:rgba(255,255,255,.08);
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.promo-message{
+    display:none;
+
+    margin:0 0 11px;
+
+    padding:8px 10px;
+
+    font-size:12px;
+    line-height:1.4;
+
+    border-radius:8px;
+}
+
+.promo-message:not(:empty){
+    display:block;
+}
+
+.promo-message.success{
+    color:#8df0b0;
+
+    background:rgba(43,187,96,.09);
+
+    border:1px solid rgba(43,187,96,.2);
+}
+
+.promo-message.error{
+    color:#ff9292;
+
+    background:rgba(255,70,70,.08);
+
+    border:1px solid rgba(255,70,70,.18);
+}
+
+.promo-message.info{
+    color:#9eb2ff;
+
+    background:rgba(91,108,255,.08);
+
+    border:1px solid rgba(91,108,255,.18);
+}
+
+
+/* =====================================================
+   SECURITY / CAPTCHA
+===================================================== */
+
+.promo-captcha{
+    position:relative;
+
+    width:100%;
+
+    /*
+     * QUAN TRỌNG:
+     * Tạo đủ chiều cao cho Cloudflare Turnstile.
+     * Tránh nút Kích hoạt bị đè lên CAPTCHA.
+     */
+    min-height:112px;
+
+    margin-bottom:14px;
+
+    padding:10px 11px;
+
+    background:#0b101a;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:9px;
+
+    box-sizing:border-box;
+
+    overflow:visible;
+}
+
+
+/* =====================================================
+   TURNSTILE WIDGET
+===================================================== */
+
+#turnstileWidget{
+    position:relative;
+
+    display:block;
+
+    width:100%;
+
+    min-height:65px;
+
+    margin:0;
+
+    padding:0;
+
+    visibility:visible;
+    opacity:1;
+
+    box-sizing:border-box;
+
+    overflow:visible;
+}
+
+
+/*
+ * Cloudflare Turnstile thường tạo iframe.
+ * Không cho iframe phá layout bên dưới.
+ */
+
+#turnstileWidget iframe{
+    display:block;
+
+    max-width:100%;
+
+    margin:0 auto;
+
+    border:0;
+}
+
+
+/*
+ * Wrapper bên trong Turnstile nếu Cloudflare tạo
+ */
+
+#turnstileWidget > div{
+    max-width:100%;
+
+    box-sizing:border-box;
+}
+
+
+/* =====================================================
+   CAPTCHA STATUS
+===================================================== */
+
+.captcha-status{
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    font-size:12px;
+    font-weight:600;
+
+    color:#d8deea;
+}
+
+.captcha-check{
+    width:20px;
+    height:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    background:#2da35a;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 0 3px rgba(45,163,90,.1);
+}
+
+.captcha-check i{
+    font-size:10px;
+}
+
+.promo-captcha small{
+    display:block;
+
+    margin-top:5px;
+
+    font-size:10px;
+    line-height:1.3;
+
+    color:#6f7a8f;
+}
+
+
+/* =====================================================
+   CAPTCHA RELOAD
+===================================================== */
+
+#reloadPromoCaptcha,
+.captcha-reload{
+    position:relative;
+
+    z-index:2;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:7px;
+
+    width:auto;
+
+    margin-top:8px;
+    padding:7px 12px;
+
+    color:#7aa7ff;
+
+    background:transparent;
+
+    border:0;
+
+    border-radius:7px;
+
+    font-family:inherit;
+    font-size:12px;
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:
+        color .2s ease,
+        background .2s ease,
+        transform .2s ease;
+
+    box-sizing:border-box;
+}
+
+#reloadPromoCaptcha:hover,
+.captcha-reload:hover{
+    color:#9bbcff;
+
+    background:rgba(102,117,255,.08);
+}
+
+#reloadPromoCaptcha:active,
+.captcha-reload:active{
+    transform:scale(.97);
+}
+
+#reloadPromoCaptcha i,
+.captcha-reload i{
+    transition:transform .4s ease;
+}
+
+#reloadPromoCaptcha:hover i,
+.captcha-reload:hover i{
+    transform:rotate(180deg);
+}
+
+
+/* =====================================================
+   SUBMIT
+===================================================== */
+
+.promo-submit{
+    position:relative;
+
+    z-index:3;
+
+    width:100%;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:7px;
+
+    margin-top:0;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5668ff,
+            #704cff
+        );
+
+    border:0;
+
+    border-radius:9px;
+
+    font-family:inherit;
+    font-size:13px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 7px 20px rgba(86,104,255,.2);
+
+    transition:
+        transform .2s ease,
+        filter .2s ease,
+        box-shadow .2s ease,
+        opacity .2s ease;
+
+    box-sizing:border-box;
+}
+
+.promo-submit:hover:not(:disabled){
+    filter:brightness(1.08);
+
+    transform:translateY(-1px);
+
+    box-shadow:
+        0 10px 25px rgba(86,104,255,.3);
+}
+
+.promo-submit:active:not(:disabled){
+    transform:translateY(0);
+}
+
+.promo-submit:disabled{
+    opacity:.55;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+    box-shadow:none;
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   CANCEL
+===================================================== */
+
+.promo-cancel{
+    position:relative;
+
+    z-index:3;
+
+    width:100%;
+    height:42px;
+
+    display:block;
+
+    margin-top:7px;
+
+    color:#d93025;
+
+    background:#fccbc8;
+
+    border:1px solid #ffcbc6;
+
+    border-radius:9px;
+
+    font-family:inherit;
+    font-size:13px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease;
+
+    box-sizing:border-box;
+}
+
+.promo-cancel:hover{
+    color:#b42318;
+
+    background:#ffb7b5;
+
+    border-color:#fdaba8;
+}
+
+.promo-cancel:active{
+    background:#ffb3af;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.promo-footer{
+    display:flex;
+    align-items:flex-start;
+
+    gap:5px;
+
+    margin-top:10px;
+    padding-top:10px;
+
+    color:#68748a;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    font-size:9px;
+    line-height:1.3;
+}
+
+.promo-footer i{
+    flex:0 0 auto;
+
+    margin-top:1px;
+
+    font-size:9px;
+
+    color:#7180ff;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:560px){
+
+    .promo-overlay{
+        padding:12px;
+    }
+
+    .promo-modal{
+        max-width:370px;
+
+        padding:17px;
+
+        border-radius:15px;
+    }
+
+    .promo-header{
+        gap:10px;
+
+        margin-bottom:15px;
+    }
+
+    .promo-icon{
+        width:40px;
+        height:40px;
+
+        flex-basis:40px;
+
+        border-radius:10px;
+    }
+
+    .promo-icon i{
+        font-size:16px;
+    }
+
+    .promo-header h2{
+        font-size:18px;
+    }
+
+    .promo-header p{
+        font-size:11px;
+    }
+
+    .promo-close{
+        top:10px;
+        right:10px;
+
+        width:30px;
+        height:30px;
+    }
+
+    .promo-input-box{
+        height:44px;
+    }
+
+    /*
+     * Mobile cần thêm chiều cao cho CAPTCHA
+     */
+    .promo-captcha{
+        min-height:112px;
+
+        margin-bottom:14px;
+
+        padding:9px 10px;
+    }
+
+    #turnstileWidget{
+        min-height:65px;
+    }
+
+    .promo-submit{
+        height:44px;
+    }
+
+    .promo-cancel{
+        height:41px;
+    }
+
+    .promo-footer{
+        font-size:9px;
+        line-height:1.3;
+    }
+
+    .promo-footer i{
+        font-size:9px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONE
+===================================================== */
+
+@media (max-width:380px){
+
+    .promo-modal{
+        padding:15px;
+    }
+
+    .promo-header h2{
+        font-size:17px;
+    }
+
+    .promo-header p{
+        font-size:10px;
+    }
+
+    .promo-captcha{
+        min-height:110px;
+
+        padding:8px;
+    }
+
+    #turnstileWidget{
+        min-height:64px;
+    }
+
+    .promo-footer{
+        font-size:8px;
+        line-height:1.3;
+    }
+
+    .promo-footer i{
+        font-size:8px;
+    }
+
+}
+
+/* =====================================================
+   FIX PROMO - ÉP CAPTCHA VÀ NÚT XẾP THEO FLOW
+   THÊM Ở CUỐI FILE CSS
+===================================================== */
+
+/* FORM */
+#promoForm {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: visible !important;
+}
+
+
+/* =====================================================
+   CAPTCHA
+===================================================== */
+
+.promo-captcha {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 0 14px 0 !important;
+    padding: 10px 11px !important;
+
+    box-sizing: border-box !important;
+
+    overflow: visible !important;
+
+    float: none !important;
+
+    clear: both !important;
+
+    transform: none !important;
+}
+
+
+/* =====================================================
+   CLOUDFLARE TURNSTILE
+===================================================== */
+
+#turnstileWidget {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height: 65px !important;
+    min-height: 65px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    float: none !important;
+
+    clear: both !important;
+
+    overflow: visible !important;
+
+    transform: none !important;
+}
+
+
+/* Turnstile wrapper */
+#turnstileWidget > div {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height: 65px !important;
+    min-height: 65px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    float: none !important;
+
+    clear: both !important;
+
+    transform: none !important;
+}
+
+
+/* Turnstile iframe */
+#turnstileWidget iframe {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height: 65px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    border: 0 !important;
+
+    float: none !important;
+
+    clear: both !important;
+
+    transform: none !important;
+}
+
+
+/* =====================================================
+   TẢI LẠI CAPTCHA
+===================================================== */
+
+#reloadPromoCaptcha,
+.captcha-reload {
+    position: relative !important;
+
+    display: inline-flex !important;
+
+    width: auto !important;
+
+    height: auto !important;
+    min-height: 30px !important;
+
+    margin: 8px 0 0 0 !important;
+    padding: 6px 10px !important;
+
+    box-sizing: border-box !important;
+
+    float: none !important;
+
+    clear: both !important;
+
+    transform: none;
+}
+
+
+/* =====================================================
+   KÍCH HOẠT NGAY
+===================================================== */
+
+.promo-submit,
+#promoSubmit {
+    position: relative !important;
+
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    display: flex !important;
+
+    width: 100% !important;
+
+    height: 45px !important;
+    min-height: 45px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    float: none !important;
+
+    clear: both !important;
+
+    transform: none !important;
+
+    flex: none !important;
+
+    z-index: 1 !important;
+}
+
+
+/* =====================================================
+   HỦY
+===================================================== */
+
+.promo-cancel {
+    position: relative !important;
+
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height: 42px !important;
+    min-height: 42px !important;
+
+    margin: 7px 0 0 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    float: none !important;
+
+    clear: both !important;
+
+    transform: none !important;
+
+    flex: none !important;
+
+    z-index: 1 !important;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.promo-footer {
+    position: relative !important;
+
+    display: flex !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+
+    margin: 10px 0 0 0 !important;
+    padding-top: 10px !important;
+
+    box-sizing: border-box !important;
+
+    float: none !important;
+
+    clear: both !important;
+
+    transform: none !important;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:560px) {
+
+    .promo-captcha {
+        margin-bottom: 14px !important;
+    }
+
+    #turnstileWidget {
+        height: 65px !important;
+        min-height: 65px !important;
+    }
+
+    #turnstileWidget > div {
+        height: 65px !important;
+        min-height: 65px !important;
+    }
+
+    #turnstileWidget iframe {
+        height: 65px !important;
+    }
+
+    .promo-submit,
+    #promoSubmit {
+        height: 44px !important;
+        min-height: 44px !important;
+    }
+
+    .promo-cancel {
+        height: 41px !important;
+        min-height: 41px !important;
+    }
+}

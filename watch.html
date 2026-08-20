@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#080b12"
+    >
+
+    <meta
+        name="description"
+        content="Xem Doraemon Movie Vietsub HD trên MonFansub Vietnam."
+    >
+
+    <meta
+        property="og:type"
+        content="video.movie"
+    >
+
+    <meta
+        property="og:title"
+        content="Xem Doraemon Movie - MonFansub Vietnam"
+    >
+
+    <meta
+        property="og:description"
+        content="Xem Doraemon Movie Vietsub HD trên MonFansub Vietnam."
+    >
+
+    <meta
+        property="og:image"
+        content="https://i.imgur.com/nFJ3B1e.png"
+    >
+
+    <title>Xem Doraemon Movie - MonFansub Vietnam</title>
+
+
+    <!-- =====================================================
+         FONT
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         CLOUDFLARE TURNSTILE
+         Dùng cho Promo Code
+    ====================================================== -->
+
+    <script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer
+    ></script>
+
+
+    <!-- =====================================================
+         CSS GỐC
+    ====================================================== -->
+
+    <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/promo.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/movie.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/theme.css">
+
+    <!-- CSS RIÊNG TRANG PHÁT -->
+    <link rel="stylesheet" href="css/watch.css">
+
+</head>
+
+
+<body class="watch-page">
+
+
+    <!-- =====================================================
+         PRELOADER
+    ====================================================== -->
+
+    <div id="preloader">
+
+        <div class="loader">
+
+            <img
+                class="loader-logo"
+                src="https://i.imgur.com/nFJ3B1e.png"
+                alt="MonFansub"
+            >
+
+            <div class="loader-spinner"></div>
+
+            <div class="loader-text">
+                Đang tải MonFansub...
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header
+        class="header"
+        id="header"
+    >
+
+        <div class="header-inner">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <img
+                    src="https://i.imgur.com/nFJ3B1e.png"
+                    alt="MonFansub"
+                >
+
+                <div class="logo-text">
+
+                    MonFansub
+
+                    <span>
+                        Vietnam
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- NAVIGATION -->
+
+            <nav
+                class="nav"
+                id="mainNav"
+            >
+
+                <a href="index.html">
+                    Trang chủ
+                </a>
+
+                <a href="index.html#latest">
+                    Mới cập nhật
+                </a>
+
+                <a
+                    href="index.html#featured"
+                    class="active"
+                >
+                    Nổi bật
+                </a>
+
+                <a href="index.html#categories">
+                    Thể loại
+                </a>
+
+                <a href="history.html">
+                    Lịch sử
+                </a>
+
+                <a href="favorite.html">
+                    Yêu thích
+                </a>
+
+            </nav>
+
+
+            <!-- SEARCH -->
+
+            <div class="header-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    id="searchInput"
+                    type="search"
+                    autocomplete="off"
+                    placeholder="Tìm kiếm phim..."
+                >
+
+            </div>
+
+
+            <!-- ACCOUNT -->
+
+            <div
+                class="account-area"
+                id="accountArea"
+            >
+
+
+                <!-- CHƯA ĐĂNG NHẬP -->
+
+                <button
+                    class="login-button"
+                    id="loginButton"
+                    type="button"
+                    aria-label="Đăng nhập"
+                    title="Đăng nhập"
+                >
+
+                    <i class="fa-solid fa-user"></i>
+
+                </button>
+
+
+                <!-- ĐÃ ĐĂNG NHẬP -->
+
+                <button
+                    class="user-button"
+                    id="userButton"
+                    type="button"
+                    style="display:none"
+                    aria-label="Tài khoản"
+                    title="Tài khoản"
+                >
+
+                    <span class="user-avatar">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </span>
+
+                </button>
+
+
+                <!-- USER DROPDOWN -->
+
+                <div
+                    class="user-dropdown"
+                    id="userDropdown"
+                >
+
+
+                    <!-- USER INFO -->
+
+                    <div class="dropdown-user">
+
+                        <div class="dropdown-avatar">
+
+                            <i class="fa-solid fa-user"></i>
+
+                        </div>
+
+
+                        <div class="dropdown-user-info">
+
+                            <strong id="dropdownUserName">
+                                User
+                            </strong>
+
+                            <small id="dropdownUserEmail">
+                                user@email.com
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACCOUNT ID -->
+
+                    <div class="dropdown-account-id">
+
+                        <i class="fa-regular fa-address-card"></i>
+
+                        <span>
+                            ID tài khoản:
+                        </span>
+
+                        <strong id="dropdownUserId">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <!-- CHAT HỖ TRỢ -->
+
+                    <a
+                        href="support.html"
+                        class="dropdown-item"
+                        id="supportLink"
+                    >
+
+                        <i class="fa-regular fa-comment-dots"></i>
+
+                        <span>
+                            Chat hỗ trợ
+                        </span>
+
+                    </a>
+
+
+                    <!-- TRANG CÁ NHÂN -->
+
+                    <a
+                        href="profile.html"
+                        class="dropdown-item"
+                        id="profileButton"
+                        data-profile-link
+                    >
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <span>
+                            Trang cá nhân
+                        </span>
+
+                    </a>
+
+
+                    <!-- GIAO DIỆN -->
+
+                    <button
+                        type="button"
+                        class="dropdown-item dropdown-button"
+                        id="themeButton"
+                    >
+
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+
+                        <span>
+                            Giao diện
+                        </span>
+
+                        <span
+                            class="dropdown-item-value"
+                            id="themeValue"
+                        >
+                            Tự động
+                        </span>
+
+                    </button>
+
+
+                    <!-- CÀI ĐẶT -->
+
+                    <a
+                        href="setting.html"
+                        class="dropdown-item"
+                    >
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        <span>
+                            Cài đặt
+                        </span>
+
+                    </a>
+
+
+                    <!-- MÃ KHUYẾN MÃI -->
+
+                    <button
+                        type="button"
+                        class="dropdown-item"
+                        id="promoCodeButton"
+                        aria-label="Nhập mã khuyến mãi"
+                    >
+
+                        <i class="fa-solid fa-barcode"></i>
+
+                        <span>
+                            Nhập mã khuyến mãi
+                        </span>
+
+                    </button>
+
+
+                    <div class="dropdown-line"></div>
+
+
+                    <!-- CONNECTION -->
+
+                    <button
+                        type="button"
+                        class="dropdown-item"
+                        id="connectionHelpButton"
+                    >
+
+                        <i class="fa-solid fa-circle-exclamation"></i>
+
+                        <span>
+                            Không thể kết nối?/Bị lỗi?
+                        </span>
+
+                    </button>
+
+
+                    <!-- LOGOUT -->
+
+                    <button
+                        id="logoutButton"
+                        class="dropdown-item logout-button"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        <span>
+                            Đăng xuất
+                        </span>
+
+                    </button>
+
+
+                    <!-- VERSION -->
+
+                    <div class="dropdown-version">
+                        prod-1.0.a5b6d8v (2026/08/17 00:00:00)
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOBILE MENU -->
+
+            <button
+                class="mobile-menu"
+                id="mobileMenu"
+                type="button"
+                aria-label="Menu"
+                aria-expanded="false"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         WATCH PAGE
+    ====================================================== -->
+
+    <main class="watch-container">
+
+
+        <!-- BREADCRUMB -->
+
+        <div class="watch-breadcrumb">
+
+            <a href="index.html">
+                Trang chủ
+            </a>
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+            <a href="detail.html?id=doraemon-movie">
+                Doraemon Movie
+            </a>
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+            <span>
+                Đang xem
+            </span>
+
+        </div>
+
+
+        <!-- =================================================
+             VIDEO PLAYER
+        ================================================== -->
+
+        <section class="video-section">
+
+            <div
+                class="video-player"
+                id="videoPlayer"
+            >
+
+                <!-- VIDEO AREA -->
+
+                <div class="video-background">
+
+                    <div class="video-logo">
+
+                        <img
+                            src="https://i.imgur.com/nFJ3B1e.png"
+                            alt="MonFansub"
+                        >
+
+                        <span>
+                            MONFANSUB
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="big-play"
+                        id="bigPlay"
+                        type="button"
+                        aria-label="Phát phim"
+                    >
+
+                        <i class="fa-solid fa-play"></i>
+
+                    </button>
+
+
+                    <div class="video-placeholder-text">
+                        Doraemon Movie
+                    </div>
+
+                </div>
+
+
+                <!-- VIDEO CONTROLS -->
+
+                <div class="video-controls">
+
+
+                    <!-- PROGRESS -->
+
+                    <div
+                        class="video-progress"
+                        id="videoProgress"
+                    >
+
+                        <div
+                            class="video-progress-bar"
+                            id="videoProgressBar"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- CONTROL BAR -->
+
+                    <div class="video-control-row">
+
+
+                        <!-- PLAY -->
+
+                        <button
+                            type="button"
+                            class="video-control-button"
+                            id="playButton"
+                            aria-label="Phát"
+                            title="Phát"
+                        >
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+
+                        <!-- VOLUME -->
+
+                        <button
+                            type="button"
+                            class="video-control-button"
+                            id="volumeButton"
+                            aria-label="Âm lượng"
+                            title="Âm lượng"
+                        >
+
+                            <i class="fa-solid fa-volume-high"></i>
+
+                        </button>
+
+
+                        <!-- TIME -->
+
+                        <span class="video-time">
+                            00:00 / 01:50:00
+                        </span>
+
+
+                        <div class="video-control-spacer"></div>
+
+
+                        <!-- SETTINGS -->
+
+                        <button
+                            type="button"
+                            class="video-control-button"
+                            id="videoSettingsButton"
+                            aria-label="Cài đặt"
+                            title="Cài đặt"
+                        >
+
+                            <i class="fa-solid fa-gear"></i>
+
+                        </button>
+
+
+                        <!-- FULLSCREEN -->
+
+                        <button
+                            type="button"
+                            class="video-control-button"
+                            id="fullscreenButton"
+                            aria-label="Toàn màn hình"
+                            title="Toàn màn hình"
+                        >
+
+                            <i class="fa-solid fa-expand"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MOVIE INFORMATION
+        ================================================== -->
+
+        <section class="watch-information">
+
+            <div class="watch-title-row">
+
+                <div>
+
+                    <h1>
+                        Doraemon Movie
+                    </h1>
+
+                    <div class="watch-meta">
+
+                        <span>
+                            HD
+                        </span>
+
+                        <span>
+                            Vietsub
+                        </span>
+
+                        <span>
+                            2026
+                        </span>
+
+                        <span>
+                            Anime
+                        </span>
+
+                        <span>
+                            1h 50m
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="detail.html?id=doraemon-movie"
+                    class="watch-detail-button"
+                >
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    Chi tiết phim
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WATCH LAYOUT
+        ================================================== -->
+
+        <div class="watch-layout">
+
+
+            <!-- LEFT -->
+
+            <div class="watch-left">
+
+
+                <!-- EPISODES -->
+
+                <section class="watch-panel">
+
+                    <div class="watch-panel-header">
+
+                        <h2>
+                            Tập phim
+                        </h2>
+
+                        <span>
+                            1 tập
+                        </span>
+
+                    </div>
+
+
+                    <div class="episode-list">
+
+                        <button
+                            class="episode active"
+                            type="button"
+                            data-episode="movie"
+                        >
+
+                            <span>
+                                Movie
+                            </span>
+
+                            <small>
+                                1h 50m
+                            </small>
+
+                        </button>
+
+
+                        <button
+                            class="episode"
+                            type="button"
+                            data-episode="trailer"
+                        >
+
+                            <span>
+                                Trailer
+                            </span>
+
+                            <small>
+                                02:15
+                            </small>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- SERVERS -->
+
+                <section class="watch-panel">
+
+                    <div class="watch-panel-header">
+
+                        <h2>
+                            Máy chủ phát
+                        </h2>
+
+                    </div>
+
+
+                    <div class="server-list">
+
+                        <button
+                            class="server active"
+                            type="button"
+                            data-server="1"
+                        >
+
+                            <i class="fa-solid fa-play"></i>
+
+                            Server 1
+
+                            <span>
+                                HD
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            class="server"
+                            type="button"
+                            data-server="2"
+                        >
+
+                            <i class="fa-solid fa-play"></i>
+
+                            Server 2
+
+                            <span>
+                                HD
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            class="server"
+                            type="button"
+                            data-server="3"
+                        >
+
+                            <i class="fa-solid fa-play"></i>
+
+                            Server 3
+
+                            <span>
+                                Backup
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- COMMENTS -->
+
+                <section class="watch-panel">
+
+                    <div class="watch-panel-header">
+
+                        <h2>
+                            Bình luận
+                        </h2>
+
+                    </div>
+
+
+                    <div class="comment-login">
+
+                        <i class="fa-regular fa-comment-dots"></i>
+
+                        <div>
+
+                            <strong>
+                                Tham gia bình luận
+                            </strong>
+
+                            <p>
+                                Đăng nhập để bình luận về bộ phim này.
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="comment-login-button"
+                            id="watchLoginButton"
+                            type="button"
+                        >
+
+                            Đăng nhập
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- RIGHT -->
+
+            <aside class="watch-right">
+
+
+                <!-- MOVIE CARD -->
+
+                <section class="watch-side-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=700&q=85"
+                        alt="Doraemon Movie"
+                        loading="lazy"
+                    >
+
+                    <div class="watch-side-content">
+
+                        <h3>
+                            Doraemon Movie
+                        </h3>
+
+
+                        <div class="watch-side-meta">
+
+                            <span>
+                                2026
+                            </span>
+
+                            <span>
+                                Anime
+                            </span>
+
+                            <span>
+                                HD
+                            </span>
+
+                        </div>
+
+
+                        <p>
+                            Cùng Doraemon và những người bạn
+                            bước vào những cuộc phiêu lưu kỳ thú.
+                        </p>
+
+
+                        <a
+                            href="detail.html?id=doraemon-movie"
+                            class="watch-side-button"
+                        >
+
+                            Xem chi tiết
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- NOTICE -->
+
+                <section class="watch-side-notice">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <div>
+
+                        <strong>
+                            Lưu ý
+                        </strong>
+
+                        <p>
+                            Nếu phim không phát được, hãy thử
+                            chuyển sang máy chủ khác.
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </aside>
+
+        </div>
+
+
+        <!-- =================================================
+             RELATED MOVIES
+        ================================================== -->
+
+        <section class="watch-related">
+
+            <div class="section-header">
+
+                <h2 class="section-title">
+                    Phim đề xuất
+                </h2>
+
+                <a
+                    href="index.html#featured"
+                    class="section-more"
+                >
+
+                    Xem tất cả
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </a>
+
+            </div>
+
+
+            <div class="watch-related-grid">
+
+
+                <!-- RELATED 1 -->
+
+                <a
+                    href="detail.html?id=doraemon-adventure"
+                    class="watch-related-card"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=500&q=80"
+                        alt="Cuộc Phiêu Lưu Kỳ Thú"
+                        loading="lazy"
+                    >
+
+                    <div>
+
+                        <h3>
+                            Cuộc Phiêu Lưu Kỳ Thú
+                        </h3>
+
+                        <p>
+                            HD • Vietsub • 2026
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- RELATED 2 -->
+
+                <a
+                    href="detail.html?id=doraemon-future"
+                    class="watch-related-card"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80"
+                        alt="Nobita Và Thế Giới Tương Lai"
+                        loading="lazy"
+                    >
+
+                    <div>
+
+                        <h3>
+                            Nobita Và Thế Giới Tương Lai
+                        </h3>
+
+                        <p>
+                            HD • Vietsub • 2026
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- RELATED 3 -->
+
+                <a
+                    href="detail.html?id=doraemon-space"
+                    class="watch-related-card"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=500&q=80"
+                        alt="Doraemon Và Cuộc Phiêu Lưu Không Gian"
+                        loading="lazy"
+                    >
+
+                    <div>
+
+                        <h3>
+                            Doraemon Và Cuộc Phiêu Lưu Không Gian
+                        </h3>
+
+                        <p>
+                            HD • Vietsub • 2025
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- RELATED 4 -->
+
+                <a
+                    href="detail.html?id=doraemon-secret"
+                    class="watch-related-card"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=500&q=80"
+                        alt="Hành Trình Bí Ẩn"
+                        loading="lazy"
+                    >
+
+                    <div>
+
+                        <h3>
+                            Hành Trình Bí Ẩn
+                        </h3>
+
+                        <p>
+                            HD • Vietsub • 2025
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+
+                <h3>
+                    MonFansub Vietnam
+                </h3>
+
+                <p>
+                    MonFansub là nhóm dịch phim Doraemon
+                    được thành lập với mục tiêu mang đến
+                    những bộ phim chất lượng và trải nghiệm
+                    xem phim tốt nhất cho cộng đồng.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a
+                    class="social"
+                    href="#"
+                    aria-label="Facebook"
+                >
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
+
+                <a
+                    class="social"
+                    href="#"
+                    aria-label="YouTube"
+                >
+
+                    <i class="fa-brands fa-youtube"></i>
+
+                </a>
+
+                <a
+                    class="social"
+                    href="#"
+                    aria-label="Discord"
+                >
+
+                    <i class="fa-brands fa-discord"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 MonFansub Vietnam.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         BACK TO TOP
+    ====================================================== -->
+
+    <button
+        id="backTop"
+        type="button"
+        aria-label="Lên đầu trang"
+        title="Lên đầu trang"
+    >
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+
+    <!-- =====================================================
+         LOGIN MODAL
+         ĐỒNG BỘ VỚI INDEX
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="loginModal"
+    >
+
+        <div class="auth-modal">
+
+            <button
+                class="modal-close"
+                id="closeLogin"
+                type="button"
+                aria-label="Đóng"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="auth-logo">
+
+                <img
+                    src="https://i.imgur.com/nFJ3B1e.png"
+                    alt="MonFansub"
+                >
+
+            </div>
+
+
+            <h2>
+                Đăng nhập
+            </h2>
+
+
+            <p class="auth-description">
+                Đăng nhập để lưu lịch sử xem
+                và danh sách yêu thích.
+            </p>
+
+
+            <form id="loginForm">
+
+                <div class="input-group">
+
+                    <label for="loginUsername">
+                        Tài khoản hoặc Email
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            id="loginUsername"
+                            type="text"
+                            placeholder="Nhập tài khoản hoặc email"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="loginPassword">
+                        Mật khẩu
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            id="loginPassword"
+                            type="password"
+                            placeholder="Nhập mật khẩu"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="loginPassword"
+                            aria-label="Hiện mật khẩu"
+                        >
+
+                            <i class="fa-solid fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="auth-options">
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            id="rememberLogin"
+                        >
+
+                        <span></span>
+
+                        Ghi nhớ đăng nhập
+
+                    </label>
+
+
+                    <a
+                        href="#"
+                        id="forgotPassword"
+                    >
+                        Quên mật khẩu?
+                    </a>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-submit"
+                >
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Đăng nhập
+
+                </button>
+
+
+                <div
+                    class="auth-message"
+                    id="loginMessage"
+                ></div>
+
+            </form>
+
+
+            <div class="auth-switch">
+
+                Chưa có tài khoản?
+
+                <button
+                    type="button"
+                    id="openRegister"
+                >
+                    Đăng ký
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         REGISTER MODAL
+         ĐỒNG BỘ VỚI INDEX
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="registerModal"
+    >
+
+        <div class="auth-modal">
+
+            <button
+                class="modal-close"
+                id="closeRegister"
+                type="button"
+                aria-label="Đóng"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="auth-logo">
+
+                <img
+                    src="https://i.imgur.com/nFJ3B1e.png"
+                    alt="MonFansub"
+                >
+
+            </div>
+
+
+            <h2>
+                Tạo tài khoản
+            </h2>
+
+
+            <p class="auth-description">
+                Tham gia cộng đồng MonFansub.
+            </p>
+
+
+            <form id="registerForm">
+
+
+                <!-- USERNAME -->
+
+                <div class="input-group">
+
+                    <label for="registerUsername">
+                        Tên tài khoản
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            id="registerUsername"
+                            type="text"
+                            placeholder="Nhập tên tài khoản"
+                            autocomplete="username"
+                            minlength="3"
+                            maxlength="30"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label for="registerEmail">
+                        Email
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+                            id="registerEmail"
+                            type="email"
+                            placeholder="Nhập email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="registerPassword">
+                        Mật khẩu
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            id="registerPassword"
+                            type="password"
+                            placeholder="Tạo mật khẩu"
+                            autocomplete="new-password"
+                            minlength="6"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="registerPassword"
+                            aria-label="Hiện mật khẩu"
+                        >
+
+                            <i class="fa-solid fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD 2 -->
+
+                <div class="input-group">
+
+                    <label for="registerPassword2">
+                        Nhập lại mật khẩu
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            id="registerPassword2"
+                            type="password"
+                            placeholder="Nhập lại mật khẩu"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-submit"
+                >
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Tạo tài khoản
+
+                </button>
+
+
+                <div
+                    class="auth-message"
+                    id="registerMessage"
+                ></div>
+
+            </form>
+
+
+            <div class="auth-switch">
+
+                Đã có tài khoản?
+
+                <button
+                    type="button"
+                    id="openLogin"
+                >
+                    Đăng nhập
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         PROMO CODE MODAL
+         ĐỒNG BỘ VỚI INDEX
+    ====================================================== -->
+
+    <div
+        class="modal-overlay promo-overlay"
+        id="promoModal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="promo-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="promoTitle"
+        >
+
+
+            <button
+                type="button"
+                class="modal-close promo-close"
+                id="closePromo"
+                aria-label="Đóng"
+                title="Đóng"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <!-- HEADER -->
+
+            <div class="promo-header">
+
+                <div class="promo-icon">
+
+                    <i class="fa-solid fa-ticket"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2 id="promoTitle">
+                        Nhập mã khuyến mãi
+                    </h2>
+
+                    <p>
+                        Vui lòng nhập mã khuyến mãi được cung cấp.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <form id="promoForm">
+
+
+                <div class="promo-input-group">
+
+                    <label for="promoCodeInput">
+                        Mã khuyến mãi
+                    </label>
+
+                    <div class="promo-input-box">
+
+                        <i class="fa-solid fa-barcode"></i>
+
+                        <input
+                            type="text"
+                            id="promoCodeInput"
+                            name="promoCode"
+                            placeholder="MFSVN@ABCDEFGHI1234567"
+                            autocomplete="off"
+                            autocapitalize="characters"
+                            spellcheck="false"
+                            maxlength="50"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="clearPromoCode"
+                            class="promo-clear"
+                            aria-label="Xóa mã"
+                            title="Xóa mã"
+                            style="display:none"
+                        >
+
+                            <i class="fa-solid fa-xmark"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="promo-message"
+                    id="promoMessage"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+
+                <!-- TURNSTILE -->
+
+                <div class="promo-captcha">
+
+                    <div
+                        class="cf-turnstile"
+                        id="promoTurnstile"
+                        data-sitekey="0x4AAAAAAEWe0jJcQZHht6oU"
+                        data-theme="dark"
+                        data-language="vi"
+                        data-action="promo"
+                        data-callback="onPromoTurnstileSuccess"
+                        data-expired-callback="onPromoTurnstileExpired"
+                        data-error-callback="onPromoTurnstileError"
+                    ></div>
+                
+ <!-- TẢI LẠI CAPTCHA -->
+  <button
+    type="button"
+    id="reloadPromoCaptcha"
+    class="captcha-reload"
+    aria-label="Tải lại CAPTCHA"
+    title="Tải lại CAPTCHA"
+  >
+    <i class="fa-solid fa-rotate"></i>
+    Tải lại CAPTCHA
+  </button>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="promo-submit"
+                    id="promoSubmit"
+                >
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    Kích hoạt ngay
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="promo-cancel"
+                    id="cancelPromo"
+                >
+
+                    Hủy
+
+                </button>
+
+            </form>
+
+
+            <div class="promo-footer">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                Mã khuyến mãi chỉ có thể sử dụng theo điều kiện
+                của chương trình.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         BLOCK OLD PROMPT
+    ====================================================== -->
+
+    <script>
+
+        /*
+         * Không sử dụng prompt() cũ
+         */
+
+        window.prompt = function () {
+
+            console.warn(
+                "PROMPT CŨ ĐÃ BỊ CHẶN."
+            );
+
+            return null;
+
+        };
+
+    </script>
+
+
+    <!-- =====================================================
+         JAVASCRIPT GỐC
+    ====================================================== -->
+
+    <script src="js/app.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/account-menu.js"></script>
+
+    <script src="js/avatar.js"></script>
+
+    <script src="js/turnstile.js"></script>
+
+
+    <!-- =====================================================
+         JAVASCRIPT TRANG PHÁT
+    ====================================================== -->
+
+    <script src="js/watch.js"></script>
+
+
+</body>
+
+</html>

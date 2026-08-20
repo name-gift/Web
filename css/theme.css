@@ -1,0 +1,305 @@
+/* =====================================================
+   THEME.CSS
+   MONFANSUB
+   DARK ↔ LIGHT
+===================================================== */
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+html[data-theme="dark"] {
+
+    color-scheme: dark;
+
+    --theme-bg: #080b12;
+    --theme-text: #ffffff;
+
+    --theme-header-bg: #080b12;
+    --theme-header-text: #ffffff;
+
+}
+
+
+/* =====================================================
+   LIGHT MODE
+===================================================== */
+
+html[data-theme="light"] {
+
+    color-scheme: light;
+
+    --theme-bg: #ffffff;
+    --theme-text: #000000;
+
+    --theme-header-bg: #ffffff;
+    --theme-header-text: #000000;
+
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+html[data-theme="dark"] body {
+
+    background-color: var(--theme-bg) !important;
+    color: var(--theme-text) !important;
+
+}
+
+
+html[data-theme="light"] body {
+
+    background-color: var(--theme-bg) !important;
+    color: var(--theme-text) !important;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+html[data-theme="dark"] header,
+html[data-theme="dark"] #header {
+
+    background-color: var(--theme-header-bg) !important;
+    color: var(--theme-header-text) !important;
+
+}
+
+
+html[data-theme="light"] header,
+html[data-theme="light"] #header {
+
+    background-color: var(--theme-header-bg) !important;
+    color: var(--theme-header-text) !important;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+html[data-theme="dark"] nav,
+html[data-theme="dark"] #mainNav,
+html[data-theme="dark"] .navbar {
+
+    background-color: var(--theme-header-bg) !important;
+    color: var(--theme-header-text) !important;
+
+}
+
+
+html[data-theme="light"] nav,
+html[data-theme="light"] #mainNav,
+html[data-theme="light"] .navbar {
+
+    background-color: var(--theme-header-bg) !important;
+    color: var(--theme-header-text) !important;
+
+}
+
+
+/* =====================================================
+   MENU LINK
+===================================================== */
+
+html[data-theme="dark"] header a,
+html[data-theme="dark"] #header a,
+html[data-theme="dark"] nav a,
+html[data-theme="dark"] #mainNav a,
+html[data-theme="dark"] .navbar a {
+
+    color: #ffffff !important;
+
+}
+
+
+html[data-theme="light"] header a,
+html[data-theme="light"] #header a,
+html[data-theme="light"] nav a,
+html[data-theme="light"] #mainNav a,
+html[data-theme="light"] .navbar a {
+
+    color: #000000 !important;
+
+}
+
+
+/* =====================================================
+   HAMBURGER
+===================================================== */
+
+html[data-theme="dark"] #mobileMenu {
+
+    color: #ffffff !important;
+
+}
+
+
+html[data-theme="light"] #mobileMenu {
+
+    color: #000000 !important;
+
+}
+
+
+/* =====================================================
+   HEADER ICON
+===================================================== */
+
+html[data-theme="dark"] header i,
+html[data-theme="dark"] #header i,
+html[data-theme="dark"] nav i,
+html[data-theme="dark"] #mainNav i {
+
+    color: #ffffff !important;
+
+}
+
+
+html[data-theme="light"] header i,
+html[data-theme="light"] #header i,
+html[data-theme="light"] nav i,
+html[data-theme="light"] #mainNav i {
+
+    color: #000000 !important;
+
+}
+
+
+/* =====================================================
+   BODY TEXT
+===================================================== */
+
+html[data-theme="dark"] body h1,
+html[data-theme="dark"] body h2,
+html[data-theme="dark"] body h3,
+html[data-theme="dark"] body h4,
+html[data-theme="dark"] body h5,
+html[data-theme="dark"] body h6,
+html[data-theme="dark"] body p {
+
+    color: #ffffff;
+
+}
+
+
+html[data-theme="light"] body h1,
+html[data-theme="light"] body h2,
+html[data-theme="light"] body h3,
+html[data-theme="light"] body h4,
+html[data-theme="light"] body h5,
+html[data-theme="light"] body h6,
+html[data-theme="light"] body p {
+
+    color: #000000;
+
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+
+    color: #ffffff;
+    background-color: #080b12;
+
+}
+
+
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select {
+
+    color: #000000;
+    background-color: #ffffff;
+
+}
+
+
+/* =====================================================
+   INPUT PLACEHOLDER
+===================================================== */
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+
+    color: #a0a0a0;
+
+}
+
+
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+
+    color: #666666;
+
+}
+
+
+/* =====================================================
+   DROPDOWN MENU
+===================================================== */
+
+html[data-theme="dark"] #userDropdown {
+
+    background-color: #080b12 !important;
+    color: #ffffff !important;
+
+}
+
+
+html[data-theme="light"] #userDropdown {
+
+    background-color: #ffffff !important;
+    color: #000000 !important;
+
+}
+
+
+html[data-theme="dark"] #userDropdown a,
+html[data-theme="dark"] #userDropdown button {
+
+    color: #ffffff !important;
+
+}
+
+
+html[data-theme="light"] #userDropdown a,
+html[data-theme="light"] #userDropdown button {
+
+    color: #000000 !important;
+
+}
+
+
+/* =====================================================
+   TRANSITION
+===================================================== */
+
+html,
+body,
+header,
+#header,
+nav,
+#mainNav,
+.navbar,
+#mobileMenu,
+#userDropdown {
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+
+}
